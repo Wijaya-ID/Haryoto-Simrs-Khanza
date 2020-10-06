@@ -340,7 +340,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         ppResepObat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppResepObat.setForeground(new java.awt.Color(50, 50, 50));
         ppResepObat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppResepObat.setText("Cetak Aturan Pakai Model 1");
+        ppResepObat.setText("Cetak Aturan Pakai E-Tiket");
         ppResepObat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppResepObat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppResepObat.setName("ppResepObat"); // NOI18N
@@ -356,7 +356,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         ppResepObat1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppResepObat1.setForeground(new java.awt.Color(50, 50, 50));
         ppResepObat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppResepObat1.setText("Cetak Aturan Pakai Model 2");
+        ppResepObat1.setText("Cetak Aturan Pakai Injeksi");
         ppResepObat1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppResepObat1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppResepObat1.setName("ppResepObat1"); // NOI18N
@@ -372,7 +372,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         ppResepObat2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppResepObat2.setForeground(new java.awt.Color(50, 50, 50));
         ppResepObat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppResepObat2.setText("Cetak Aturan Pakai Model 3");
+        ppResepObat2.setText("Cetak Aturan Pakai Default Khanza");
         ppResepObat2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppResepObat2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppResepObat2.setName("ppResepObat2"); // NOI18N
@@ -420,7 +420,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         ppLembarObat1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppLembarObat1.setForeground(new java.awt.Color(50, 50, 50));
         ppLembarObat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppLembarObat1.setText("Lembar Pemberian Obat 2");
+        ppLembarObat1.setText("Lembar Pemberian Obat Default Khanza");
         ppLembarObat1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppLembarObat1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppLembarObat1.setName("ppLembarObat1"); // NOI18N
@@ -801,7 +801,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-04-2020" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-07-2020" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -815,7 +815,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-04-2020" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-07-2020" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -945,7 +945,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 95, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-04-2020" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-07-2020" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);

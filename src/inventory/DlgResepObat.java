@@ -269,12 +269,12 @@ public final class DlgResepObat extends javax.swing.JDialog {
         Popup2 = new javax.swing.JPopupMenu();
         ppResepObat = new javax.swing.JMenuItem();
         ppResepObat1 = new javax.swing.JMenuItem();
-        ppResepObat2 = new javax.swing.JMenuItem();
         ppLabelDataObat = new javax.swing.JMenuItem();
         ppLembarObat = new javax.swing.JMenuItem();
-        ppLembarObat1 = new javax.swing.JMenuItem();
         ppUbahAturanPakai = new javax.swing.JMenuItem();
         ppUbahAturanPakai1 = new javax.swing.JMenuItem();
+        ppResepObat2 = new javax.swing.JMenuItem();
+        ppLembarObat1 = new javax.swing.JMenuItem();
         WindowInput3 = new javax.swing.JDialog();
         internalFrame4 = new widget.InternalFrame();
         scrollPane1 = new widget.ScrollPane();
@@ -368,22 +368,6 @@ public final class DlgResepObat extends javax.swing.JDialog {
         });
         Popup2.add(ppResepObat1);
 
-        ppResepObat2.setBackground(new java.awt.Color(255, 255, 254));
-        ppResepObat2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppResepObat2.setForeground(new java.awt.Color(50, 50, 50));
-        ppResepObat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppResepObat2.setText("Cetak Aturan Pakai Default Khanza");
-        ppResepObat2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        ppResepObat2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        ppResepObat2.setName("ppResepObat2"); // NOI18N
-        ppResepObat2.setPreferredSize(new java.awt.Dimension(225, 25));
-        ppResepObat2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ppResepObat2ActionPerformed(evt);
-            }
-        });
-        Popup2.add(ppResepObat2);
-
         ppLabelDataObat.setBackground(new java.awt.Color(255, 255, 254));
         ppLabelDataObat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppLabelDataObat.setForeground(new java.awt.Color(50, 50, 50));
@@ -404,7 +388,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         ppLembarObat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppLembarObat.setForeground(new java.awt.Color(50, 50, 50));
         ppLembarObat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppLembarObat.setText("Lembar Pemberian Obat 1");
+        ppLembarObat.setText("Lembar Pemberian Obat");
         ppLembarObat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppLembarObat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppLembarObat.setName("ppLembarObat"); // NOI18N
@@ -415,22 +399,6 @@ public final class DlgResepObat extends javax.swing.JDialog {
             }
         });
         Popup2.add(ppLembarObat);
-
-        ppLembarObat1.setBackground(new java.awt.Color(255, 255, 254));
-        ppLembarObat1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppLembarObat1.setForeground(new java.awt.Color(50, 50, 50));
-        ppLembarObat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppLembarObat1.setText("Lembar Pemberian Obat Default Khanza");
-        ppLembarObat1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        ppLembarObat1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        ppLembarObat1.setName("ppLembarObat1"); // NOI18N
-        ppLembarObat1.setPreferredSize(new java.awt.Dimension(225, 25));
-        ppLembarObat1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ppLembarObat1ActionPerformed(evt);
-            }
-        });
-        Popup2.add(ppLembarObat1);
 
         ppUbahAturanPakai.setBackground(new java.awt.Color(255, 255, 254));
         ppUbahAturanPakai.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -463,6 +431,38 @@ public final class DlgResepObat extends javax.swing.JDialog {
             }
         });
         Popup2.add(ppUbahAturanPakai1);
+
+        ppResepObat2.setBackground(new java.awt.Color(255, 255, 254));
+        ppResepObat2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        ppResepObat2.setForeground(new java.awt.Color(50, 50, 50));
+        ppResepObat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        ppResepObat2.setText("Cetak Aturan Pakai Default Khanza");
+        ppResepObat2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppResepObat2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppResepObat2.setName("ppResepObat2"); // NOI18N
+        ppResepObat2.setPreferredSize(new java.awt.Dimension(225, 25));
+        ppResepObat2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppResepObat2ActionPerformed(evt);
+            }
+        });
+        Popup2.add(ppResepObat2);
+
+        ppLembarObat1.setBackground(new java.awt.Color(255, 255, 254));
+        ppLembarObat1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        ppLembarObat1.setForeground(new java.awt.Color(50, 50, 50));
+        ppLembarObat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        ppLembarObat1.setText("Lembar Pemberian Obat Default Khanza");
+        ppLembarObat1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppLembarObat1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppLembarObat1.setName("ppLembarObat1"); // NOI18N
+        ppLembarObat1.setPreferredSize(new java.awt.Dimension(225, 25));
+        ppLembarObat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppLembarObat1ActionPerformed(evt);
+            }
+        });
+        Popup2.add(ppLembarObat1);
 
         WindowInput3.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         WindowInput3.setName("WindowInput3"); // NOI18N
@@ -801,7 +801,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-07-2020" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-10-2020" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -815,7 +815,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-07-2020" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-10-2020" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -945,7 +945,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 95, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-07-2020" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-10-2020" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);

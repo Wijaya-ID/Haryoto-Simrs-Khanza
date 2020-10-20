@@ -8,15 +8,7 @@
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="koneksi"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="mm"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -100,7 +92,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 	<detail>
 		<band height="56" splitType="Stretch">
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="59" y="37" width="101" height="9" uuid="404df43b-cfdf-4067-887a-7252fb8a80f6"/>
+				<reportElement stretchType="RelativeToTallestObject" x="56" y="40" width="101" height="9" uuid="404df43b-cfdf-4067-887a-7252fb8a80f6"/>
 				<textElement textAlignment="Left">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -108,7 +100,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{nama_brng}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToTallestObject" x="12" y="19" width="24" height="9" uuid="17bd15cb-9398-4b15-bdb8-85c7b8c8b8a2">
+				<reportElement stretchType="RelativeToTallestObject" x="9" y="16" width="24" height="9" uuid="17bd15cb-9398-4b15-bdb8-85c7b8c8b8a2">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -118,7 +110,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[No.RM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToTallestObject" x="12" y="28" width="24" height="9" uuid="1f399c08-3944-492a-af9b-9440255c0481">
+				<reportElement stretchType="RelativeToTallestObject" x="9" y="28" width="24" height="9" uuid="1f399c08-3944-492a-af9b-9440255c0481">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -128,7 +120,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[Nama]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToTallestObject" x="35" y="19" width="4" height="9" uuid="9cdb9728-f9b5-4db6-891d-abe41d85b328"/>
+				<reportElement stretchType="RelativeToTallestObject" x="32" y="16" width="4" height="9" uuid="9cdb9728-f9b5-4db6-891d-abe41d85b328"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -136,7 +128,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToTallestObject" x="35" y="28" width="4" height="9" uuid="65423f9d-8fb8-4b35-b61c-adf8234ceb22"/>
+				<reportElement stretchType="RelativeToTallestObject" x="32" y="28" width="4" height="9" uuid="65423f9d-8fb8-4b35-b61c-adf8234ceb22"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -144,7 +136,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="40" y="19" width="29" height="9" uuid="7c341994-dcf9-4c07-9d30-8d70a1189ec9"/>
+				<reportElement stretchType="RelativeToTallestObject" x="37" y="16" width="29" height="9" uuid="7c341994-dcf9-4c07-9d30-8d70a1189ec9"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -152,7 +144,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="40" y="28" width="120" height="9" uuid="31d443cf-a72c-40e5-a8c3-441c0155662d"/>
+				<reportElement stretchType="RelativeToTallestObject" x="37" y="28" width="120" height="9" uuid="31d443cf-a72c-40e5-a8c3-441c0155662d"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -160,7 +152,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="90" y="19" width="62" height="9" uuid="2075238c-e8d8-4c82-ab52-b1f19cba6193">
+				<reportElement stretchType="RelativeToTallestObject" x="83" y="16" width="62" height="9" uuid="2075238c-e8d8-4c82-ab52-b1f19cba6193">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -170,7 +162,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{no_rawat}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement stretchType="RelativeToTallestObject" x="123" y="10" width="38" height="9" uuid="d0066ac9-5467-4cde-b2a1-a885b5450f51"/>
+				<reportElement stretchType="RelativeToTallestObject" x="113" y="4" width="38" height="9" uuid="d0066ac9-5467-4cde-b2a1-a885b5450f51"/>
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -178,7 +170,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToTallestObject" x="90" y="10" width="33" height="9" uuid="ff2e7ee8-da45-4f58-bd63-1079d9a2a10c">
+				<reportElement stretchType="RelativeToTallestObject" x="82" y="4" width="33" height="9" uuid="ff2e7ee8-da45-4f58-bd63-1079d9a2a10c">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -189,7 +181,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[Tgl.Lahir :]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement stretchType="RelativeToTallestObject" x="12" y="10" width="61" height="9" uuid="3f5b7062-1ae5-471d-a255-d8aef69bfcc2">
+				<reportElement stretchType="RelativeToTallestObject" x="9" y="4" width="61" height="9" uuid="3f5b7062-1ae5-471d-a255-d8aef69bfcc2">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -199,7 +191,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{tgl_perawatan}]]></textFieldExpression>
 			</textField>
 			<textField pattern="HH:mm:ss">
-				<reportElement stretchType="RelativeToTallestObject" x="54" y="10" width="32" height="9" uuid="bddfad3b-ab12-4631-94c7-401181e18be2"/>
+				<reportElement stretchType="RelativeToTallestObject" x="51" y="4" width="32" height="9" uuid="bddfad3b-ab12-4631-94c7-401181e18be2"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>
@@ -207,7 +199,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<textFieldExpression><![CDATA[$F{jam}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToTallestObject" x="12" y="37" width="47" height="9" uuid="85588839-4f6a-4791-81f3-ce3052ce7f46">
+				<reportElement stretchType="RelativeToTallestObject" x="9" y="40" width="47" height="9" uuid="85588839-4f6a-4791-81f3-ce3052ce7f46">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Top">
@@ -217,7 +209,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				<text><![CDATA[Nama Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToTallestObject" x="55" y="37" width="4" height="9" uuid="5cf6b624-aa08-4001-885f-5254148964a8"/>
+				<reportElement stretchType="RelativeToTallestObject" x="52" y="40" width="4" height="9" uuid="5cf6b624-aa08-4001-885f-5254148964a8"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>

@@ -132,7 +132,7 @@ public class DlgRBObatPercaraBayar extends javax.swing.JDialog {
                      "databarang.kode_brng from reg_periksa inner join pasien inner join "+
                      "detail_pemberian_obat inner join databarang "+
                      "on detail_pemberian_obat.kode_brng=databarang.kode_brng and detail_pemberian_obat.no_rawat=reg_periksa.no_rawat and "+
-                     "reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.kd_pj=? and detail_pemberian_obat.tgl_perawatan between ? and ? and reg_periksa.status_bayar = 'Sudah Bayar' AND reg_periksa.no_rawat NOT IN (SELECT no_rawat FROM piutang_pasien WHERE piutang_pasien.status='Belum Lunas') order by detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam");             
+                     "reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.kd_pj=? and detail_pemberian_obat.tgl_perawatan between ? and ? order by detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam");             
              psresep2=koneksi.prepareStatement(
                      "select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,"+
                      "detail_pemberian_obat.no_rawat,pasien.nm_pasien,reg_periksa.kd_pj,databarang.nama_brng,"+
@@ -141,7 +141,7 @@ public class DlgRBObatPercaraBayar extends javax.swing.JDialog {
                      "databarang.kode_brng from reg_periksa inner join pasien inner join "+
                      "detail_pemberian_obat inner join databarang "+
                      "on detail_pemberian_obat.kode_brng=databarang.kode_brng and detail_pemberian_obat.no_rawat=reg_periksa.no_rawat and "+
-                     "reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.kd_pj=? and detail_pemberian_obat.tgl_perawatan between ? and ? and reg_periksa.status_bayar = 'Sudah Bayar' AND reg_periksa.no_rawat NOT IN (SELECT no_rawat FROM piutang_pasien WHERE piutang_pasien.status='Belum Lunas') order by detail_pemberian_obat.no_rawat");             
+                     "reg_periksa.no_rkm_medis=pasien.no_rkm_medis where reg_periksa.kd_pj=? and detail_pemberian_obat.tgl_perawatan between ? and ? order by detail_pemberian_obat.no_rawat");             
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -618,7 +618,6 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                psresep.setString(1,rspenjab.getString("kd_pj"));
                psresep.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+""));
                psresep.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+""));
-              // psresep.setString(4,Valid.SetTgl(cmbStatus.getSelectedItem()+""));
                a=1;
                rsresep=psresep.executeQuery();               
                subtotal=0;
@@ -666,7 +665,6 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                psresep2.setString(1,rspenjab.getString("kd_pj"));
                psresep2.setString(2,Valid.SetTgl(Tgl1.getSelectedItem()+""));
                psresep2.setString(3,Valid.SetTgl(Tgl2.getSelectedItem()+""));
-               //psresep2.setString(4,Valid.SetTgl(cmbStatus.getSelectedItem()+""));
                a=1;
                rsresep=psresep2.executeQuery();               
                subtotal=0;

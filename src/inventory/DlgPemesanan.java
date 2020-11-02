@@ -1548,7 +1548,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 " (databarang.h_beli*databarang.isi) as hargabesar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                 " where databarang.status='1' and databarang.kode_brng like ? or "+
                 " databarang.status='1' and databarang.nama_brng like ? or "+
-                " databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                " databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             try {
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 ps.setString(2,"%"+TCari.getText().trim()+"%");
@@ -1688,7 +1688,7 @@ private void btnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 "detail_surat_pemesanan_medis.total,detail_surat_pemesanan_medis.jumlah2,databarang.kode_sat as satbar, "+
                 "databarang.isi from databarang inner join jenis inner join detail_surat_pemesanan_medis "+
                 "on databarang.kdjns=jenis.kdjns and detail_surat_pemesanan_medis.kode_brng=databarang.kode_brng "+
-                " where detail_surat_pemesanan_medis.no_pemesanan=? order by databarang.nama_brng");
+                " where detail_surat_pemesanan_medis.no_pemesanan=? order by databarang.kode_brng asc");
             try {
                 ps.setString(1,noorder);
                 rs=ps.executeQuery();

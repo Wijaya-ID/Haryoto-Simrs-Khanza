@@ -1074,13 +1074,13 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     ps=koneksi.prepareStatement("select data_batch.kode_brng, databarang.nama_brng,databarang.kode_sat,data_batch.dasar,data_batch.no_batch,data_batch.no_faktur,  "+
                         " gudangbarang.stok from data_batch inner join databarang on data_batch.kode_brng=databarang.kode_brng "+
                         " inner join gudangbarang on data_batch.kode_brng=gudangbarang.kode_brng and data_batch.no_batch=gudangbarang.no_batch and data_batch.no_faktur=gudangbarang.no_faktur "+
-                        " where gudangbarang.stok>0 and gudangbarang.kd_bangsal=? order by databarang.nama_brng");
+                        " where gudangbarang.stok>0 and gudangbarang.kd_bangsal=? order by databarang.kode_brng asc");
                 }else{
                     ps=koneksi.prepareStatement("select data_batch.kode_brng, databarang.nama_brng,databarang.kode_sat,data_batch.dasar,data_batch.no_batch,data_batch.no_faktur, "+
                         " gudangbarang.stok from data_batch inner join databarang on data_batch.kode_brng=databarang.kode_brng "+
                         " inner join gudangbarang on data_batch.kode_brng=gudangbarang.kode_brng and data_batch.no_batch=gudangbarang.no_batch and data_batch.no_faktur=gudangbarang.no_faktur "+
                         " where gudangbarang.stok>0 and gudangbarang.kd_bangsal=? and databarang.kode_brng like ? or "+
-                        " gudangbarang.stok>0 and gudangbarang.kd_bangsal=? and databarang.nama_brng like ? order by databarang.nama_brng");
+                        " gudangbarang.stok>0 and gudangbarang.kd_bangsal=? and databarang.nama_brng like ? order by databarang.kode_brng asc");
                 }
 
                 try {
@@ -1110,12 +1110,12 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 if(TCari.getText().trim().equals("")){
                     ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_sat,databarang.dasar,gudangbarang.stok "+
                         " from databarang inner join gudangbarang on databarang.kode_brng=gudangbarang.kode_brng "+
-                        " where gudangbarang.no_batch='' and gudangbarang.no_faktur='' and gudangbarang.stok>0 and databarang.status='1' and gudangbarang.kd_bangsal=? order by databarang.nama_brng");
+                        " where gudangbarang.no_batch='' and gudangbarang.no_faktur='' and gudangbarang.stok>0 and databarang.status='1' and gudangbarang.kd_bangsal=? order by databarang.kode_brng asc");
                 }else{
                     ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_sat,databarang.dasar,gudangbarang.stok "+
                         " from databarang inner join gudangbarang on databarang.kode_brng=gudangbarang.kode_brng "+
                         " where gudangbarang.no_batch='' and gudangbarang.no_faktur='' and gudangbarang.stok>0 and databarang.status='1' and gudangbarang.kd_bangsal=? and databarang.kode_brng like ? or "+
-                        " gudangbarang.no_batch='' and gudangbarang.no_faktur='' and gudangbarang.stok>0 and databarang.status='1' and gudangbarang.kd_bangsal=? and databarang.nama_brng like ? order by databarang.nama_brng");
+                        " gudangbarang.no_batch='' and gudangbarang.no_faktur='' and gudangbarang.stok>0 and databarang.status='1' and gudangbarang.kd_bangsal=? and databarang.nama_brng like ? order by databarang.kode_brng asc");
                 }
 
                 try {
@@ -1160,7 +1160,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 "detail_permintaan_medis.jumlah,databarang.dasar,(detail_permintaan_medis.jumlah*databarang.dasar) as total "+
                 "from databarang inner join detail_permintaan_medis "+
                 "on detail_permintaan_medis.kode_brng=databarang.kode_brng "+
-                "where detail_permintaan_medis.no_permintaan=? order by databarang.nama_brng");
+                "where detail_permintaan_medis.no_permintaan=? order by databarang.kode_brng asc");
             try {
                 ps.setString(1,nopermintaan);
                 rs=ps.executeQuery();

@@ -378,7 +378,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         + " from databarang inner join kodesatuan inner join jenis "
                         + " on databarang.kode_sat=kodesatuan.kode_sat and databarang.kdjns=jenis.kdjns "
                         + " where databarang.status='1' and databarang.kode_brng like ? or databarang.status='1' and databarang.nama_brng like ? or "
-                        + " databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                        + " databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             try {
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 ps.setString(2,"%"+TCari.getText().trim()+"%");

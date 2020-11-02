@@ -403,7 +403,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 " where databarang.status='1' and databarang.kode_brng like ? or "+
                 " databarang.status='1' and databarang.nama_brng like ? or "+
                 " databarang.status='1' and databarang.kode_sat like ? or "+
-                " databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                " databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             try {
                 pstampil.setString(1,"%"+TCari.getText().trim()+"%");
                 pstampil.setString(2,"%"+TCari.getText().trim()+"%");

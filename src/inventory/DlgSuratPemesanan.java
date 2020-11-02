@@ -1472,14 +1472,14 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar, "+
                     " (databarang.h_beli*databarang.isi) as harga,databarang.kode_sat,databarang.isi "+
                     " from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
-                    " where databarang.status='1' order by databarang.nama_brng");
+                    " where databarang.status='1' order by databarang.kode_brng asc");
             }else{
                 ps=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar, "+
                     " (databarang.h_beli*databarang.isi) as harga,databarang.kode_sat,databarang.isi "+
                     " from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                     " where databarang.status='1' and databarang.kode_brng like ? or "+
                     " databarang.status='1' and databarang.nama_brng like ? or "+
-                    " databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                    " databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             }
                 
             try {

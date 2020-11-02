@@ -1725,7 +1725,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     + " data_batch.utama,data_batch.vip,data_batch.vvip,data_batch.beliluar,data_batch.jualbebas,"
                     + " data_batch.karyawan,data_batch.tgl_kadaluarsa, data_batch.asal,data_batch.jumlahbeli,data_batch.sisa "
                     + " from data_batch inner join databarang on data_batch.kode_brng=databarang.kode_brng "
-                    + " where data_batch.tgl_beli between ? and ? order by databarang.nama_brng");
+                    + " where data_batch.tgl_beli between ? and ? order by databarang.kode_brng asc");
             }else{
                 ps = koneksi.prepareStatement("select data_batch.kode_brng, databarang.nama_brng, "
                     + " data_batch.no_faktur,data_batch.no_batch,data_batch.tgl_beli, data_batch.dasar,data_batch.h_beli,"
@@ -1737,7 +1737,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     + " data_batch.tgl_beli between ? and ? and databarang.nama_brng like ? or "
                     + " data_batch.tgl_beli between ? and ? and data_batch.no_batch like ? or "
                     + " data_batch.tgl_beli between ? and ? and data_batch.no_faktur like ? or "
-                    + " data_batch.tgl_beli between ? and ? and data_batch.asal like ? order by databarang.nama_brng");
+                    + " data_batch.tgl_beli between ? and ? and data_batch.asal like ? order by databarang.kode_brng asc");
             }
                 
             try {

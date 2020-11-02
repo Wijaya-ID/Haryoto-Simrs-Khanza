@@ -934,7 +934,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     " inner join kategori_barang on databarang.kdjns=jenis.kdjns "+
                     " and databarang.kode_golongan=golongan_barang.kode "+
                     " and databarang.kode_kategori=kategori_barang.kode "+
-                    " where databarang.status='1' order by databarang.nama_brng");
+                    " where databarang.status='1' order by databarang.kode_brng asc");
             }else{
                 ps=koneksi.prepareStatement(
                     "select databarang.kode_brng,databarang.nama_brng,databarang.kode_satbesar,databarang.kode_sat,jenis.nama,"+
@@ -947,7 +947,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     " databarang.status='1' and databarang.nama_brng like ? or "+
                     " databarang.status='1' and kategori_barang.nama like ? or "+
                     " databarang.status='1' and golongan_barang.nama like ? or "+
-                    " databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                    " databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             }
                 
             try {

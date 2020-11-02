@@ -875,7 +875,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                         " where databarang.kode_brng not in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and databarang.kode_brng like ? or "+
                         " databarang.kode_brng not in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and databarang.nama_brng like ? or "+
                         " databarang.kode_brng not in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and databarang.kode_sat like ? or "+
-                        " databarang.kode_brng not in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                        " databarang.kode_brng not in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
                 try {
                     pstampil.setString(1,Valid.SetTgl(Tgl.getSelectedItem()+""));
                     pstampil.setString(2,kdgudang.getText());
@@ -921,7 +921,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     " where databarang.kode_brng in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and databarang.kode_brng like ? or "+
                     " databarang.kode_brng in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and databarang.nama_brng like ? or "+
                     " databarang.kode_brng in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and databarang.kode_sat like ? or "+
-                    " databarang.kode_brng in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                    " databarang.kode_brng in (select kode_brng from opname where tanggal=? and kd_bangsal=?) and databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             try {
                 pstampil.setString(1,Valid.SetTgl(Tgl.getSelectedItem()+""));
                 pstampil.setString(2,kdgudang.getText());
@@ -1075,14 +1075,14 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             if(TCari.getText().trim().equals("")){
                 pstampil=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,jenis.nama, databarang.kode_sat, "+
                     "databarang.dasar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
-                    " where databarang.status='1' order by databarang.nama_brng");
+                    " where databarang.status='1' order by databarang.kode_brng asc");
             }else{
                 pstampil=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,jenis.nama, databarang.kode_sat, "+
                     "databarang.dasar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                     " where databarang.status='1' and databarang.kode_brng like ? or "+
                     " databarang.status='1' and databarang.nama_brng like ? or "+
                     " databarang.status='1' and databarang.kode_sat like ? or "+
-                    " databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                    " databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             }
                 
             try {

@@ -2461,7 +2461,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                             + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                             + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                            + " where databarang.status='1' order by databarang.nama_brng");
+                            + " where databarang.status='1' order by databarang.kode_brng asc");
                 }else{
                     ps = koneksi.prepareStatement(
                             "select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar,satuanbesar.satuan as satuanbesar, "
@@ -2489,7 +2489,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " databarang.status='1' and golongan_barang.nama like ? or "
                             + " databarang.status='1' and jenis.nama like ? or "
                             + " databarang.status='1' and databarang.kode_industri like ? or "
-                            + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.nama_brng");
+                            + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.kode_brng asc");
                 }
                     
                 try {
@@ -2682,7 +2682,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                         + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                         + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                        + " where databarang.status='1' order by databarang.nama_brng");
+                        + " where databarang.status='1' order by databarang.kode_brng asc");
             }else{
                 ps = koneksi.prepareStatement(
                         "select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar,satuanbesar.satuan as satuanbesar, "
@@ -2710,7 +2710,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " databarang.status='1' and golongan_barang.nama like ? or "
                         + " databarang.status='1' and jenis.nama like ? or "
                         + " databarang.status='1' and databarang.kode_industri like ? or "
-                        + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.nama_brng");
+                        + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.kode_brng asc");
             }
 
             try {
@@ -2840,7 +2840,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " inner join industrifarmasi on databarang.kode_industri=industrifarmasi.kode_industri "
                         + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                         + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
-                        + " where databarang.status='1' order by databarang.nama_brng");
+                        + " where databarang.status='1' order by databarang.kode_brng asc");
             }else{
                 ps = koneksi.prepareStatement(
                         "select databarang.kode_brng, databarang.nama_brng,databarang.kode_satbesar,satuanbesar.satuan as satuanbesar, "
@@ -2868,7 +2868,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + " databarang.status='1' and golongan_barang.nama like ? or "
                         + " databarang.status='1' and jenis.nama like ? or "
                         + " databarang.status='1' and databarang.kode_industri like ? or "
-                        + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.nama_brng");
+                        + " databarang.status='1' and industrifarmasi.nama_industri like ? order by databarang.kode_brng asc");
             }
 
             try {
@@ -2982,7 +2982,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                             + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
                             + " inner join detail_pemberian_obat on detail_pemberian_obat.kode_brng=data_batch.kode_brng and detail_pemberian_obat.no_batch=data_batch.no_batch and detail_pemberian_obat.no_faktur=data_batch.no_faktur "
-                            + " where detail_pemberian_obat.no_rawat=? group by databarang.kode_brng,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur order by databarang.nama_brng");
+                            + " where detail_pemberian_obat.no_rawat=? group by databarang.kode_brng,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur order by databarang.kode_brng asc");
                     try {
                         ps4.setString(1,NoRetur);
                         rs = ps4.executeQuery();
@@ -3058,7 +3058,7 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                             + " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "
                             + " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "
                             + " inner join detail_pemberian_obat on detail_pemberian_obat.kode_brng=databarang.kode_brng "
-                            + " where detail_pemberian_obat.no_rawat=? group by databarang.kode_brng order by databarang.nama_brng");
+                            + " where detail_pemberian_obat.no_rawat=? group by databarang.kode_brng order by databarang.kode_brng asc");
                     try {
                         ps4.setString(1,NoRetur);
                         rs = ps4.executeQuery();

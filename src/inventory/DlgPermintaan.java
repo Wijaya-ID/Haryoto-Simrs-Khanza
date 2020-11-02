@@ -927,7 +927,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     " from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                     " inner join golongan_barang on databarang.kode_golongan=golongan_barang.kode "+
                     " inner join kategori_barang on databarang.kode_kategori=kategori_barang.kode "+
-                    " where databarang.status='1' order by databarang.nama_brng");
+                    " where databarang.status='1' order by databarang.kode_brng asc");
             }else{
                 ps=koneksi.prepareStatement(
                     "select databarang.kode_brng,databarang.nama_brng,databarang.kode_sat,jenis.nama,"+
@@ -939,7 +939,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     " databarang.status='1' and databarang.nama_brng like ? or "+
                     " databarang.status='1' and kategori_barang.nama like ? or "+
                     " databarang.status='1' and golongan_barang.nama like ? or "+
-                    " databarang.status='1' and jenis.nama like ? order by databarang.nama_brng");
+                    " databarang.status='1' and jenis.nama like ? order by databarang.kode_brng asc");
             }
                 
             try {

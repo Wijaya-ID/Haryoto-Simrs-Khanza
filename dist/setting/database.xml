@@ -21,7 +21,7 @@
     <entry key="ALARMRSISRUTE">yes</entry>
     <entry key="ALARMBOOKINGPERIKSA">yes</entry>
     <entry key="ALARMPENGADUANPASIEN">yes</entry>
-    <entry key="MENUTRANSPARAN">yes</entry>
+    <entry key="MENUTRANSPARAN">no</entry>
     <entry key="URLAPIBPJS">https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest</entry>
     <entry key="SECRETKEYAPIBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
     <entry key="CONSIDAPIBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
@@ -59,8 +59,8 @@
     <entry key="URLAPIINHEALTH">http://development.inhealth.co.id/pelkesws2</entry>
     <entry key="TOKENINHEALTH">inh_2de79bedbd97e8e440e0583a5794ebb1</entry>
     <entry key="PEMBULATANHARGAOBAT">no</entry>
-    <entry key="AKTIFKANBATCHOBAT">no</entry>
-    <entry key="CETAKRINCIANOBAT">no</entry>
+    <entry key="AKTIFKANBATCHOBAT">yes</entry>
+    <entry key="CETAKRINCIANOBAT">yes</entry>
     <entry key="DEPOAKTIFOBAT"></entry>
     <entry key="AKTIFKANBILLINGPARSIAL">yes</entry>
     <entry key="URLDUKCAPILJAKARTA">http://kependudukan.jakarta.go.id/wsrs/xml.jsp</entry>

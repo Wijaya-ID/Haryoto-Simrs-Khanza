@@ -34,6 +34,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.Timer;
@@ -499,7 +501,7 @@ public final class DlgCariObat2 extends javax.swing.JDialog {
         Popup.setName("Popup"); // NOI18N
 
         ppBersihkan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppBersihkan.setForeground(new java.awt.Color(50,50,50));
+        ppBersihkan.setForeground(new java.awt.Color(50, 50, 50));
         ppBersihkan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         ppBersihkan.setText("Bersihkan Jumlah");
         ppBersihkan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -514,7 +516,7 @@ public final class DlgCariObat2 extends javax.swing.JDialog {
         Popup.add(ppBersihkan);
 
         ppStok.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppStok.setForeground(new java.awt.Color(50,50,50));
+        ppStok.setForeground(new java.awt.Color(50, 50, 50));
         ppStok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         ppStok.setText("Tampilkan Semua Stok");
         ppStok.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -529,7 +531,7 @@ public final class DlgCariObat2 extends javax.swing.JDialog {
         Popup.add(ppStok);
 
         ppStok1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppStok1.setForeground(new java.awt.Color(50,50,50));
+        ppStok1.setForeground(new java.awt.Color(50, 50, 50));
         ppStok1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         ppStok1.setText("Tampilkan Stok Lokasi Lain");
         ppStok1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -572,7 +574,7 @@ public final class DlgCariObat2 extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Obat, Alkes & BHP Medis ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Obat, Alkes & BHP Medis ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -729,7 +731,7 @@ public final class DlgCariObat2 extends javax.swing.JDialog {
         jLabel5.setBounds(4, 10, 68, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-04-2019" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2020" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -866,8 +868,7 @@ public final class DlgCariObat2 extends javax.swing.JDialog {
 
         TabRawat.setBackground(new java.awt.Color(255, 255, 253));
         TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
-        TabRawat.setForeground(new java.awt.Color(50,50,50));
-        TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        TabRawat.setForeground(new java.awt.Color(50, 50, 50));
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

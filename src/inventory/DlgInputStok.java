@@ -194,6 +194,7 @@ public class DlgInputStok extends javax.swing.JDialog {
         ppBelumOpname = new javax.swing.JMenuItem();
         ppSudahOpname = new javax.swing.JMenuItem();
         ppstoklokasi = new javax.swing.JMenuItem();
+        ppstoklokasi2 = new javax.swing.JMenuItem();
         internalFrame1 = new widget.InternalFrame();
         scrollPane1 = new widget.ScrollPane();
         tbDokter = new widget.Table();
@@ -306,6 +307,22 @@ public class DlgInputStok extends javax.swing.JDialog {
             }
         });
         Popup.add(ppstoklokasi);
+
+        ppstoklokasi2.setBackground(new java.awt.Color(255, 255, 254));
+        ppstoklokasi2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        ppstoklokasi2.setForeground(new java.awt.Color(50, 50, 50));
+        ppstoklokasi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        ppstoklokasi2.setText("Cetak Stok Lokasi Depo 2");
+        ppstoklokasi2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppstoklokasi2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppstoklokasi2.setName("ppstoklokasi2"); // NOI18N
+        ppstoklokasi2.setPreferredSize(new java.awt.Dimension(200, 25));
+        ppstoklokasi2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppstoklokasi2ActionPerformed(evt);
+            }
+        });
+        Popup.add(ppstoklokasi2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -1016,6 +1033,32 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }   
     }//GEN-LAST:event_ppstoklokasiActionPerformed
 
+    private void ppstoklokasi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppstoklokasi2ActionPerformed
+        if(nmgudang.getText().trim().equals("")||kdgudang.getText().trim().equals("")){
+            Valid.textKosong(kdgudang,"Lokasi");
+        }else{
+           this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                Map<String, Object> param = new HashMap<>();
+                param.put("namars",akses.getnamars());
+                param.put("alamatrs",akses.getalamatrs());
+                param.put("kotars",akses.getkabupatenrs());
+                param.put("propinsirs",akses.getpropinsirs());
+                param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());
+                param.put("lokasi",nmgudang.getText());
+                param.put("logo",Sequel.cariGambar("select logo from setting"));  
+                Valid.MyReportqry("rptStokObatDepo2.jasper","report","::[ Stok Obat ]::","SELECT databarang.kode_brng, databarang.nama_brng,jenis.nama, databarang.kode_sat," +
+                    "databarang.letak_barang,industrifarmasi.nama_industri,databarang.h_beli,kategori_barang.nama AS kategori,gudangbarang.stok,golongan_barang.nama AS golongan,databarang.dasar " +
+                    "FROM databarang INNER JOIN jenis ON databarang.kdjns=jenis.kdjns " +
+                    "INNER JOIN industrifarmasi ON industrifarmasi.kode_industri=databarang.kode_industri " +
+                    "INNER JOIN golongan_barang ON databarang.kode_golongan=golongan_barang.kode " +
+                    "INNER JOIN kategori_barang ON databarang.kode_kategori=kategori_barang.kode " +
+                    "INNER JOIN gudangbarang ON databarang.kode_brng=gudangbarang.kode_brng "+
+                    "WHERE gudangbarang.kd_bangsal='"+kdgudang.getText()+"' ",param);
+                this.setCursor(Cursor.getDefaultCursor());
+        } 
+    }//GEN-LAST:event_ppstoklokasi2ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1064,6 +1107,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     private javax.swing.JMenuItem ppStok;
     private javax.swing.JMenuItem ppSudahOpname;
     private javax.swing.JMenuItem ppstoklokasi;
+    private javax.swing.JMenuItem ppstoklokasi2;
     private widget.ScrollPane scrollPane1;
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables

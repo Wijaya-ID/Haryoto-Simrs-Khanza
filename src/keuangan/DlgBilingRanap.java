@@ -856,6 +856,13 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         TabRawat = new javax.swing.JTabbedPane();
         Scroll = new widget.ScrollPane();
         tbBilling = new widget.Table();
+        panelPermintaan = new widget.panelisi();
+        scrollPane6 = new widget.ScrollPane();
+        tbLab = new widget.Table();
+        scrollPane7 = new widget.ScrollPane();
+        tbRadiologi = new widget.Table();
+        scrollPane8 = new widget.ScrollPane();
+        tbApotek = new widget.Table();
         panelBayar = new widget.panelisi();
         TtlSemua = new widget.TextBox();
         TKembali = new widget.TextBox();
@@ -878,13 +885,6 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         chkRalan = new widget.CekBox();
         chkRanap = new widget.CekBox();
         jLabel18 = new widget.Label();
-        panelPermintaan = new widget.panelisi();
-        scrollPane6 = new widget.ScrollPane();
-        tbLab = new widget.Table();
-        scrollPane7 = new widget.ScrollPane();
-        tbRadiologi = new widget.Table();
-        scrollPane8 = new widget.ScrollPane();
-        tbApotek = new widget.Table();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -1945,7 +1945,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         jLabel4.setPreferredSize(new java.awt.Dimension(65, 23));
         panelGlass1.add(jLabel4);
 
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-07-2020 19:35:45" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-01-2021 15:06:03" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -2048,7 +2048,6 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         TabRawat.setBackground(new java.awt.Color(255, 255, 253));
         TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
         TabRawat.setForeground(new java.awt.Color(50, 50, 50));
-        TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2085,6 +2084,76 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         Scroll.setViewportView(tbBilling);
 
         TabRawat.addTab("Data Tagihan", Scroll);
+
+        panelPermintaan.setBorder(null);
+        panelPermintaan.setName("panelPermintaan"); // NOI18N
+        panelPermintaan.setPreferredSize(new java.awt.Dimension(100, 137));
+        panelPermintaan.setLayout(new java.awt.GridLayout(3, 0));
+
+        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "1. Permintaan Laborat : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane6.setName("scrollPane6"); // NOI18N
+        scrollPane6.setOpaque(true);
+
+        tbLab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbLab.setToolTipText("");
+        tbLab.setName("tbLab"); // NOI18N
+        scrollPane6.setViewportView(tbLab);
+
+        panelPermintaan.add(scrollPane6);
+
+        scrollPane7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "2. Permintaan Radiologi : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane7.setName("scrollPane7"); // NOI18N
+        scrollPane7.setOpaque(true);
+
+        tbRadiologi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbRadiologi.setToolTipText("");
+        tbRadiologi.setName("tbRadiologi"); // NOI18N
+        scrollPane7.setViewportView(tbRadiologi);
+
+        panelPermintaan.add(scrollPane7);
+
+        scrollPane8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "3. Permintaan Resep : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane8.setName("scrollPane8"); // NOI18N
+        scrollPane8.setOpaque(true);
+
+        tbApotek.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbApotek.setToolTipText("");
+        tbApotek.setName("tbApotek"); // NOI18N
+        scrollPane8.setViewportView(tbApotek);
+
+        panelPermintaan.add(scrollPane8);
+
+        TabRawat.addTab("Status Permintaan", panelPermintaan);
 
         panelBayar.setBorder(null);
         panelBayar.setForeground(new java.awt.Color(50, 50, 50));
@@ -2336,76 +2405,6 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         jLabel18.setBounds(570, 10, 110, 23);
 
         TabRawat.addTab("Pembayaran", panelBayar);
-
-        panelPermintaan.setBorder(null);
-        panelPermintaan.setName("panelPermintaan"); // NOI18N
-        panelPermintaan.setPreferredSize(new java.awt.Dimension(100, 137));
-        panelPermintaan.setLayout(new java.awt.GridLayout(3, 0));
-
-        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "1. Permintaan Laborat : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
-        scrollPane6.setName("scrollPane6"); // NOI18N
-        scrollPane6.setOpaque(true);
-
-        tbLab.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbLab.setToolTipText("");
-        tbLab.setName("tbLab"); // NOI18N
-        scrollPane6.setViewportView(tbLab);
-
-        panelPermintaan.add(scrollPane6);
-
-        scrollPane7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "2. Permintaan Radiologi : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
-        scrollPane7.setName("scrollPane7"); // NOI18N
-        scrollPane7.setOpaque(true);
-
-        tbRadiologi.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbRadiologi.setToolTipText("");
-        tbRadiologi.setName("tbRadiologi"); // NOI18N
-        scrollPane7.setViewportView(tbRadiologi);
-
-        panelPermintaan.add(scrollPane7);
-
-        scrollPane8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "3. Permintaan Resep : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
-        scrollPane8.setName("scrollPane8"); // NOI18N
-        scrollPane8.setOpaque(true);
-
-        tbApotek.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbApotek.setToolTipText("");
-        tbApotek.setName("tbApotek"); // NOI18N
-        scrollPane8.setViewportView(tbApotek);
-
-        panelPermintaan.add(scrollPane8);
-
-        TabRawat.addTab("Status Permintaan", panelPermintaan);
 
         internalFrame1.add(TabRawat, java.awt.BorderLayout.CENTER);
 

@@ -69,6 +69,7 @@ import permintaan.DlgPermintaanRadiologi;
 import rekammedis.RMHemodialisa;
 import rekammedis.RMDataAsuhanGizi;
 import rekammedis.RMDataMonitoringAsuhanGizi;
+import surat.SuratKeteranganCovid;
 
 /**
  *
@@ -767,6 +768,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBilling = new javax.swing.JMenuItem();
         jSeparator12 = new javax.swing.JPopupMenu.Separator();
         MnLaporan = new javax.swing.JMenu();
+        MnCetakSuratCovid = new javax.swing.JMenuItem();
         MnRincianObat = new javax.swing.JMenuItem();
         MnRM2D = new javax.swing.JMenuItem();
         MnSensusRanap = new javax.swing.JMenuItem();
@@ -1835,6 +1837,22 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnLaporan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnLaporan.setName("MnLaporan"); // NOI18N
         MnLaporan.setPreferredSize(new java.awt.Dimension(220, 26));
+
+        MnCetakSuratCovid.setBackground(new java.awt.Color(255, 255, 254));
+        MnCetakSuratCovid.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnCetakSuratCovid.setForeground(new java.awt.Color(50, 50, 50));
+        MnCetakSuratCovid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnCetakSuratCovid.setText("Surat Keterangan Covid");
+        MnCetakSuratCovid.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnCetakSuratCovid.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnCetakSuratCovid.setName("MnCetakSuratCovid"); // NOI18N
+        MnCetakSuratCovid.setPreferredSize(new java.awt.Dimension(320, 26));
+        MnCetakSuratCovid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnCetakSuratCovidActionPerformed(evt);
+            }
+        });
+        MnLaporan.add(MnCetakSuratCovid);
 
         MnRincianObat.setBackground(new java.awt.Color(255, 255, 254));
         MnRincianObat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -9037,6 +9055,31 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
     }//GEN-LAST:event_MnBarcodeRM9ActionPerformed
 
+    
+    
+    private void MnCetakSuratCovidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetakSuratCovidActionPerformed
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data pasien sudah habis...!!!!");
+            TNoRw1.requestFocus();
+        }else if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu data registrasi pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                SuratKeteranganCovid resume=new SuratKeteranganCovid(null,false);
+                resume.isCek();
+                resume.emptTeks();
+                resume.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                resume.setLocationRelativeTo(internalFrame1);
+                resume.setNoRm(TNoRw1.getText(),DTPCari1.getDate(),DTPCari2.getDate());
+                resume.tampil();
+                resume.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());
+            }
+        }
+    }//GEN-LAST:event_MnCetakSuratCovidActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -9104,6 +9147,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JMenuItem MnBilling;
     private javax.swing.JMenuItem MnCekKepesertaan;
     private javax.swing.JMenuItem MnCekNIK;
+    private javax.swing.JMenuItem MnCetakSuratCovid;
     private javax.swing.JMenuItem MnCetakSuratSakit1;
     private javax.swing.JMenuItem MnDPJP;
     private javax.swing.JMenuItem MnDPJPRanap;

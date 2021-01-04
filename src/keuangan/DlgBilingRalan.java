@@ -43,7 +43,7 @@ import simrskhanza.DlgTagihanOperasi;
 public class DlgBilingRalan extends javax.swing.JDialog {
     private DefaultTableModel tabModeRwJlDr;
     private final DefaultTableModel tabModeTambahan,tabModePotongan,tabModeAkunBayar,tabModeAkunPiutang,tabModeLab,tabModeRad,tabModeApotek;
-    
+    public DlgDeposit deposit=new DlgDeposit(null,false);
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Jurnal jur=new Jurnal();
@@ -59,7 +59,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
                    Jasa_Medik_Dokter_Laborat_Ralan=0,Jasa_Medik_Petugas_Laborat_Ralan=0,Kso_Laborat_Ralan=0,
                    Persediaan_Laborat_Rawat_Jalan=0,Jasa_Medik_Dokter_Radiologi_Ralan=0,Jasa_Medik_Petugas_Radiologi_Ralan=0,
                    Kso_Radiologi_Ralan=0,Persediaan_Radiologi_Rawat_Jalan=0,Obat_Rawat_Jalan=0,
-                   Jasa_Medik_Dokter_Operasi_Ralan=0,Jasa_Medik_Paramedis_Operasi_Ralan=0,Obat_Operasi_Ralan=0,kekurangan=0;
+                   Jasa_Medik_Dokter_Operasi_Ralan=0,Jasa_Medik_Paramedis_Operasi_Ralan=0,Obat_Operasi_Ralan=0,kekurangan=0,uangdeposit=0;
     private int i,r,cek,row2,countbayar=0,z=0,jml=0;
     private String nota_jalan="",dokterrujukan="",polirujukan="",umur="",status="",biaya="",tambahan="",totals="",kdptg="",nmptg="",kd_pj="",notaralan="",centangdokterralan="",
             rinciandokterralan="",Tindakan_Ralan="",Laborat_Ralan="",Radiologi_Ralan="",
@@ -483,7 +483,32 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         kdpoli.setDocument(new batasInput((byte)5).getKata(kdpoli));
         kddokter.setDocument(new batasInput((byte)20).getKata(kddokter));        
-        
+        deposit.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {}
+            @Override
+            public void windowClosing(WindowEvent e) {}
+            @Override
+            public void windowClosed(WindowEvent e) {
+                if(akses.getform().equals("DLgBilingRalan")){
+                    if(status.equals("belum")){
+                        uangdeposit=Sequel.cariIsiAngka("select ifnull(sum(besar_deposit),0) from deposit where no_rawat=?",TNoRw.getText());                  
+                    }else{
+                        uangdeposit=Sequel.cariIsiAngka("select ifnull(sum(Uang_Muka),0) from nota_inap where no_rawat=?",TNoRw.getText());
+                    }
+                    Deposit.setText(Valid.SetAngka(uangdeposit));
+                    isKembali();
+                }
+            }
+            @Override
+            public void windowIconified(WindowEvent e) {}
+            @Override
+            public void windowDeiconified(WindowEvent e) {}
+            @Override
+            public void windowActivated(WindowEvent e) {}
+            @Override
+            public void windowDeactivated(WindowEvent e) {}
+        });
         dokter.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {}
@@ -789,6 +814,13 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         TabRawat = new javax.swing.JTabbedPane();
         Scroll = new widget.ScrollPane();
         tbBilling = new widget.Table();
+        panelPermintaan = new widget.panelisi();
+        scrollPane5 = new widget.ScrollPane();
+        tbLab = new widget.Table();
+        scrollPane6 = new widget.ScrollPane();
+        tbRadiologi = new widget.Table();
+        scrollPane7 = new widget.ScrollPane();
+        tbApotek = new widget.Table();
         panelBayar = new widget.panelisi();
         TtlSemua = new widget.TextBox();
         TKembali = new widget.TextBox();
@@ -815,13 +847,9 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         BtnCariBayar = new widget.Button();
         TCari1 = new widget.TextBox();
         btnCariPiutang = new widget.Button();
-        panelPermintaan = new widget.panelisi();
-        scrollPane5 = new widget.ScrollPane();
-        tbLab = new widget.Table();
-        scrollPane6 = new widget.ScrollPane();
-        tbRadiologi = new widget.Table();
-        scrollPane7 = new widget.ScrollPane();
-        tbApotek = new widget.Table();
+        BtnSeek2 = new widget.Button();
+        Deposit = new widget.TextBox();
+        jLabel15 = new widget.Label();
         panelGlass8 = new widget.panelisi();
         BtnSimpan = new widget.Button();
         BtnNota = new widget.Button();
@@ -1710,7 +1738,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         jLabel4.setPreferredSize(new java.awt.Dimension(65, 23));
         panelGlass1.add(jLabel4);
 
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-07-2020 19:31:14" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-01-2021 15:07:09" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -1727,7 +1755,6 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         TabRawat.setBackground(new java.awt.Color(255, 255, 253));
         TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
         TabRawat.setForeground(new java.awt.Color(50, 50, 50));
-        TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1757,6 +1784,82 @@ public class DlgBilingRalan extends javax.swing.JDialog {
 
         TabRawat.addTab("Data Tagihan", Scroll);
 
+        panelPermintaan.setBorder(null);
+        panelPermintaan.setName("panelPermintaan"); // NOI18N
+        panelPermintaan.setPreferredSize(new java.awt.Dimension(100, 137));
+        panelPermintaan.setLayout(new java.awt.GridLayout(3, 0));
+
+        scrollPane5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "1. Permintaan Laborat : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane5.setComponentPopupMenu(PopupBayar);
+        scrollPane5.setName("scrollPane5"); // NOI18N
+        scrollPane5.setOpaque(true);
+
+        tbLab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbLab.setToolTipText("");
+        tbLab.setComponentPopupMenu(PopupBayar);
+        tbLab.setName("tbLab"); // NOI18N
+        scrollPane5.setViewportView(tbLab);
+
+        panelPermintaan.add(scrollPane5);
+
+        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "2. Permintaan Radiologi : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane6.setComponentPopupMenu(PopupBayar);
+        scrollPane6.setName("scrollPane6"); // NOI18N
+        scrollPane6.setOpaque(true);
+
+        tbRadiologi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbRadiologi.setToolTipText("");
+        tbRadiologi.setComponentPopupMenu(PopupBayar);
+        tbRadiologi.setName("tbRadiologi"); // NOI18N
+        scrollPane6.setViewportView(tbRadiologi);
+
+        panelPermintaan.add(scrollPane6);
+
+        scrollPane7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "3. Permintaan Resep : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        scrollPane7.setComponentPopupMenu(PopupBayar);
+        scrollPane7.setName("scrollPane7"); // NOI18N
+        scrollPane7.setOpaque(true);
+
+        tbApotek.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbApotek.setToolTipText("");
+        tbApotek.setComponentPopupMenu(PopupBayar);
+        tbApotek.setName("tbApotek"); // NOI18N
+        scrollPane7.setViewportView(tbApotek);
+
+        panelPermintaan.add(scrollPane7);
+
+        TabRawat.addTab("Status Permintaan", panelPermintaan);
+
         panelBayar.setBorder(null);
         panelBayar.setPreferredSize(new java.awt.Dimension(100, 137));
         panelBayar.setLayout(null);
@@ -1780,7 +1883,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         TKembali.setHighlighter(null);
         TKembali.setName("TKembali"); // NOI18N
         panelBayar.add(TKembali);
-        TKembali.setBounds(110, 377, 230, 23);
+        TKembali.setBounds(620, 380, 230, 23);
 
         jLabel5.setText("Bayar : Rp.");
         jLabel5.setName("jLabel5"); // NOI18N
@@ -1962,7 +2065,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         jLabel6.setName("jLabel6"); // NOI18N
         jLabel6.setPreferredSize(new java.awt.Dimension(95, 23));
         panelBayar.add(jLabel6);
-        jLabel6.setBounds(19, 377, 90, 23);
+        jLabel6.setBounds(530, 380, 90, 23);
 
         scrollPane4.setComponentPopupMenu(PopupPiutang);
         scrollPane4.setName("scrollPane4"); // NOI18N
@@ -2059,83 +2162,32 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         panelBayar.add(btnCariPiutang);
         btnCariPiutang.setBounds(875, 222, 25, 23);
 
+        BtnSeek2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        BtnSeek2.setMnemonic('3');
+        BtnSeek2.setToolTipText("Alt+3");
+        BtnSeek2.setName("BtnSeek2"); // NOI18N
+        BtnSeek2.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnSeek2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSeek2ActionPerformed(evt);
+            }
+        });
+        panelBayar.add(BtnSeek2);
+        BtnSeek2.setBounds(330, 380, 25, 23);
+
+        Deposit.setEditable(false);
+        Deposit.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        Deposit.setName("Deposit"); // NOI18N
+        panelBayar.add(Deposit);
+        Deposit.setBounds(110, 380, 220, 23);
+
+        jLabel15.setText("Deposit : Rp.");
+        jLabel15.setName("jLabel15"); // NOI18N
+        jLabel15.setPreferredSize(new java.awt.Dimension(95, 23));
+        panelBayar.add(jLabel15);
+        jLabel15.setBounds(0, 380, 110, 23);
+
         TabRawat.addTab("Pembayaran", panelBayar);
-
-        panelPermintaan.setBorder(null);
-        panelPermintaan.setName("panelPermintaan"); // NOI18N
-        panelPermintaan.setPreferredSize(new java.awt.Dimension(100, 137));
-        panelPermintaan.setLayout(new java.awt.GridLayout(3, 0));
-
-        scrollPane5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "1. Permintaan Laborat : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
-        scrollPane5.setComponentPopupMenu(PopupBayar);
-        scrollPane5.setName("scrollPane5"); // NOI18N
-        scrollPane5.setOpaque(true);
-
-        tbLab.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbLab.setToolTipText("");
-        tbLab.setComponentPopupMenu(PopupBayar);
-        tbLab.setName("tbLab"); // NOI18N
-        scrollPane5.setViewportView(tbLab);
-
-        panelPermintaan.add(scrollPane5);
-
-        scrollPane6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "2. Permintaan Radiologi : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
-        scrollPane6.setComponentPopupMenu(PopupBayar);
-        scrollPane6.setName("scrollPane6"); // NOI18N
-        scrollPane6.setOpaque(true);
-
-        tbRadiologi.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbRadiologi.setToolTipText("");
-        tbRadiologi.setComponentPopupMenu(PopupBayar);
-        tbRadiologi.setName("tbRadiologi"); // NOI18N
-        scrollPane6.setViewportView(tbRadiologi);
-
-        panelPermintaan.add(scrollPane6);
-
-        scrollPane7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "3. Permintaan Resep : ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
-        scrollPane7.setComponentPopupMenu(PopupBayar);
-        scrollPane7.setName("scrollPane7"); // NOI18N
-        scrollPane7.setOpaque(true);
-
-        tbApotek.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbApotek.setToolTipText("");
-        tbApotek.setComponentPopupMenu(PopupBayar);
-        tbApotek.setName("tbApotek"); // NOI18N
-        scrollPane7.setViewportView(tbApotek);
-
-        panelPermintaan.add(scrollPane7);
-
-        TabRawat.addTab("Status Permintaan", panelPermintaan);
 
         internalFrame1.add(TabRawat, java.awt.BorderLayout.CENTER);
 
@@ -3643,6 +3695,16 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
     }//GEN-LAST:event_TabRawatMouseClicked
 
+    private void BtnSeek2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeek2ActionPerformed
+        akses.setform("DLgBilingRalan");
+        deposit.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        deposit.setLocationRelativeTo(internalFrame1);
+        deposit.isCek();
+        deposit.setNoRm(TNoRw.getText(),DTPTgl.getDate(),DTPTgl.getDate());
+        deposit.setAlwaysOnTop(false);
+        deposit.setVisible(true);
+    }//GEN-LAST:event_BtnSeek2ActionPerformed
+
  
 
     /**
@@ -3675,6 +3737,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private widget.Button BtnKeluar1;
     private widget.Button BtnKeluarPotongan;
     private widget.Button BtnNota;
+    private widget.Button BtnSeek2;
     private widget.Button BtnSimpan;
     private widget.Button BtnSimpan1;
     private widget.Button BtnSimpan2;
@@ -3686,6 +3749,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private widget.Button BtnTambahPotongan;
     private widget.Button BtnView;
     private widget.Tanggal DTPTgl;
+    public widget.TextBox Deposit;
     private javax.swing.JMenuItem MnCariPeriksaLab;
     private javax.swing.JMenuItem MnCariRadiologi;
     private javax.swing.JMenuItem MnDokter;
@@ -3746,6 +3810,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private widget.Label jLabel12;
     private widget.Label jLabel13;
     private widget.Label jLabel14;
+    private widget.Label jLabel15;
     private widget.Label jLabel16;
     private widget.Label jLabel17;
     private widget.Label jLabel3;
@@ -3868,6 +3933,8 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         Obat_Operasi_Ralan=0;
         
         if(i<=0){
+            uangdeposit=Sequel.cariIsiAngka("select ifnull(sum(besar_deposit),0) from deposit where no_rawat=?",TNoRw.getText());
+                Deposit.setText(Valid.SetAngka(uangdeposit));
              prosesCariReg();    
              if((chkLaborat.isSelected()==true)||(chkTarifDokter.isSelected()==true)||(chkTarifPrm.isSelected()==true)||(chkRadiologi.isSelected()==true)){
                  tabModeRwJlDr.addRow(new Object[]{true,"Tindakan",":","",null,null,null,null,"Ralan Dokter"});
@@ -3920,6 +3987,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                    System.out.println("Notifikasi : "+ex);
                 }
              }
+             
              if(chkPotongan.isSelected()==true){                          
                 try {
                     pspotongan=koneksi.prepareStatement(sqlpspotongan);
@@ -3958,6 +4026,8 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
              isHitung(); 
              status="belum";
          }else if(i>0){
+             uangdeposit=Sequel.cariIsiAngka("select ifnull(sum(besar_deposit),0) from deposit where no_rawat=?",TNoRw.getText());
+                Deposit.setText(Valid.SetAngka(uangdeposit));
              Valid.SetTgl2(DTPTgl,Sequel.cariIsi("select concat(tanggal,' ',jam) from nota_jalan where no_rawat='"+TNoRw.getText()+"'"));
              Valid.tabelKosong(tabModeRwJlDr);
              try{                
@@ -4817,7 +4887,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         TagihanPPn.setText(Valid.SetAngka3(tagihanppn));
         
         if(piutang<=0){
-            kekurangan=(bayar+besarppn)-tagihanppn;
+            kekurangan=(bayar+uangdeposit+besarppn)-tagihanppn;
             jLabel5.setText("Bayar : Rp.");
             if(kekurangan<0){
                 jLabel6.setText("Kekurangan : Rp.");
@@ -4827,7 +4897,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                  
             TKembali.setText(Valid.SetAngka3(kekurangan));            
         }else{
-            kekurangan=(tagihanppn-(bayar+besarppn)-piutang)* -1;
+            kekurangan=(tagihanppn-(bayar+uangdeposit+besarppn)-piutang)* -1;
             jLabel5.setText("Uang Muka : Rp.");
             if(kekurangan>0){
                 jLabel6.setText("Kelebihan : Rp.");

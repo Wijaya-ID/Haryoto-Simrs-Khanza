@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="165" pageHeight="56" columnWidth="165" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0215df48-fc9e-4cec-965a-b946cd41d2b9">
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="169" pageHeight="141" orientation="Landscape" columnWidth="159" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="0215df48-fc9e-4cec-965a-b946cd41d2b9">
 	<property name="ireport.zoom" value="4.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,7 +8,15 @@
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="1000"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="koneksi"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -90,7 +98,7 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 		<property name="com.jaspersoft.studio.field.tree.path" value="jenis"/>
 	</field>
 	<detail>
-		<band height="56" splitType="Stretch">
+		<band height="131" splitType="Stretch">
 			<textField>
 				<reportElement stretchType="RelativeToTallestObject" x="56" y="40" width="101" height="9" uuid="404df43b-cfdf-4067-887a-7252fb8a80f6"/>
 				<textElement textAlignment="Left">
@@ -216,9 +224,6 @@ resep_obat.jam=detail_pemberian_obat.jam and kodesatuan.kode_sat=databarang.kode
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
-			<break>
-				<reportElement x="0" y="55" width="165" height="1" uuid="0e647c73-ac65-4a20-a8f5-2529d7e6f4e3"/>
-			</break>
 		</band>
 	</detail>
 	<summary>

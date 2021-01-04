@@ -791,4 +791,25 @@ public class koneksiDB {
         }
         return var;
     }
+    
+    public static String DEPOAKTIFRALAN(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("DEPOAKTIFRALAN");
+        }catch(Exception e){
+            var=""; 
+        }
+        return var;
+    }
+    
+    public static String DEPOAKTIFRANAP(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("DEPOAKTIFRANAP");
+        }catch(Exception e){
+            var=""; 
+        }
+        return var;
+    }
+    
 }

@@ -36,7 +36,7 @@ public class DlgReturJual extends javax.swing.JDialog {
     private ResultSet rs;
     private Connection koneksi=koneksiDB.condb();
     private riwayatobat Trackobat=new riwayatobat();
-    private String formvalid="";
+    private String formvalid="",depoaktif="";
     private String aktifkanbatch="no",norawat="";
     private boolean sukses=true;
 
@@ -758,7 +758,6 @@ public class DlgReturJual extends javax.swing.JDialog {
         Kdptg.setBounds(409, 40, 100, 23);
 
         Jenisjual.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rawat Jalan", "Kelas 1", "Kelas 2", "Kelas 3", "Utama/BPJS", "VIP", "VVIP", "Beli Luar", "Jual Bebas", "Karyawan", "Harga Beli" }));
-        Jenisjual.setSelectedIndex(10);
         Jenisjual.setName("Jenisjual"); // NOI18N
         Jenisjual.setPreferredSize(new java.awt.Dimension(45, 23));
         Jenisjual.addItemListener(new java.awt.event.ItemListener() {
@@ -1406,7 +1405,8 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     
     public void isCek(){  
         autonomor();
-        Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
+        kdgudang.setText(depoaktif = koneksiDB.DEPOAKTIFRANAP());
+        //Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
         Sequel.cariIsi("select nm_bangsal from bangsal where kd_bangsal=?",nmgudang,kdgudang.getText());
         if(akses.getjml2()>=1){
             Kdptg.setEditable(false);

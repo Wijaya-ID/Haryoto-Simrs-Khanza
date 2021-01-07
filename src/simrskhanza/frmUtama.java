@@ -546,6 +546,8 @@ import kepegawaian.PengajuanCutiPegawai;
 import keuangan.DlgAkunPenagihanPiutang;
 import keuangan.KeuanganHutangToko;
 import keuangan.DlgJnsPerawatanRanap;
+import keuangan.DlgPembayaranRalanPoliRsud;
+import keuangan.DlgPembayaranRalanSentralRsud;
 import keuangan.DlgPerkiraanBiayaRanap;
 import keuangan.KeuanganBayarPesanToko;
 import keuangan.KeuanganPenagihanPiutangPasien;
@@ -1295,6 +1297,8 @@ public class frmUtama extends javax.swing.JFrame {
         btnHarianKlasifikasi = new widget.ButtonBig();
         btnBulananKlasifikasi = new widget.ButtonBig();
         btnSisaStok2 = new widget.ButtonBig();
+        btnPembayaranRalanRsud = new widget.ButtonBig();
+        btnPembayaranRalanRsud2 = new widget.ButtonBig();
         internalFrame1 = new widget.InternalFrame();
         BtnMenu = new widget.ButtonBig();
         jSeparator4 = new javax.swing.JSeparator();
@@ -1577,7 +1581,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04/09/2020" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07/01/2021" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -6650,6 +6654,28 @@ public class frmUtama extends javax.swing.JFrame {
         btnSisaStok2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSisaStok2ActionPerformed(evt);
+            }
+        });
+
+        btnPembayaranRalanRsud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1404047007_02.png"))); // NOI18N
+        btnPembayaranRalanRsud.setText("Pembayaran Ralan Poli RSUD");
+        btnPembayaranRalanRsud.setIconTextGap(0);
+        btnPembayaranRalanRsud.setName("btnPembayaranRalanRsud"); // NOI18N
+        btnPembayaranRalanRsud.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPembayaranRalanRsud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPembayaranRalanRsudActionPerformed(evt);
+            }
+        });
+
+        btnPembayaranRalanRsud2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1404047007_02.png"))); // NOI18N
+        btnPembayaranRalanRsud2.setText("Pembayaran Ralan Sentral RSUD");
+        btnPembayaranRalanRsud2.setIconTextGap(0);
+        btnPembayaranRalanRsud2.setName("btnPembayaranRalanRsud2"); // NOI18N
+        btnPembayaranRalanRsud2.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPembayaranRalanRsud2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPembayaranRalanRsud2ActionPerformed(evt);
             }
         });
 
@@ -14033,6 +14059,32 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnSisaStok2ActionPerformed
 
+    private void btnPembayaranRalanRsudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranRalanRsudActionPerformed
+        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPembayaranRalanPoliRsud billing=new DlgPembayaranRalanPoliRsud(this,false);
+        billing.tampil();
+        billing.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        billing.setLocationRelativeTo(PanelUtama);
+        billing.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnPembayaranRalanRsudActionPerformed
+
+    private void btnPembayaranRalanRsud2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranRalanRsud2ActionPerformed
+        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPembayaranRalanSentralRsud billing=new DlgPembayaranRalanSentralRsud(this,false);
+        billing.tampil();
+        billing.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        billing.setLocationRelativeTo(PanelUtama);
+        billing.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnPembayaranRalanRsud2ActionPerformed
+
     private void btnKategoriPerpustakaanActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -16791,6 +16843,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.ButtonBig btnPembayaranAkunBayar2;
     private widget.ButtonBig btnPembayaranAkunBayar3;
     private widget.ButtonBig btnPembayaranPerUnit;
+    private widget.ButtonBig btnPembayaranRalanRsud;
+    private widget.ButtonBig btnPembayaranRalanRsud2;
     private widget.ButtonBig btnPembelian;
     private widget.ButtonBig btnPembelianIpsrs;
     private widget.ButtonBig btnPemesanan;
@@ -18272,6 +18326,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpiutang_akun_piutang()==true){
                 Panelmenu.add(btnPiutangPerAkunPiutang);
+                jmlmenu++;
+            }
+            if(akses.getpembayaran_ralan_rsud()==true){
+                Panelmenu.add(btnPembayaranRalanRsud);
+                jmlmenu++;
+            }
+            if(akses.getpembayaran_ralan_rsud2()==true){
+                Panelmenu.add(btnPembayaranRalanRsud2);
                 jmlmenu++;
             }
         }else if(cmbMenu.getSelectedIndex()==8){ 
@@ -21606,7 +21668,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnPiutangPerAkunPiutang);
             jmlmenu++;
         }
-
+        if(akses.getpembayaran_ralan_rsud()==true){
+                Panelmenu.add(btnPembayaranRalanRsud);
+                jmlmenu++;
+            }
+        if(akses.getpembayaran_ralan_rsud2()==true){
+                Panelmenu.add(btnPembayaranRalanRsud2);
+                jmlmenu++;
+            }
         if(akses.geticd9()==true){
             Panelmenu.add(btnICD9);
             jmlmenu++;
@@ -28479,6 +28548,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
          if(akses.getsisa_stok2()==true){
             if(btnSisaStok2.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnSisaStok2);
+                jmlmenu++;
+            }                
+        }
+         if(akses.getpembayaran_ralan_rsud()==true){
+            if(btnPembayaranRalanRsud.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPembayaranRalanRsud);
+                jmlmenu++;
+            }                
+        }
+         if(akses.getpembayaran_ralan_rsud2()==true){
+            if(btnPembayaranRalanRsud2.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPembayaranRalanRsud2);
                 jmlmenu++;
             }                
         }

@@ -42,7 +42,7 @@ public class DlgPenjualan extends javax.swing.JDialog {
             Penjualan_Obat=Sequel.cariIsi("select Penjualan_Obat from set_akun"),
             HPP_Obat_Jual_Bebas=Sequel.cariIsi("select HPP_Obat_Jual_Bebas from set_akun"),
             Persediaan_Obat_Jual_Bebas=Sequel.cariIsi("select Persediaan_Obat_Jual_Bebas from set_akun"),
-            status="Belum Dibayar",pilihanetiket="";
+            status="Belum Dibayar",pilihanetiket="",depoaktif="";
     private PreparedStatement ps,psstok,pscaribatch;
     private ResultSet rs,rsstok;
     private String[] no,kodebarang,kandungan,namabarang,kategori,satuan,aturanpakai,nobatch,nofaktur,kadaluarsa;
@@ -3523,7 +3523,8 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     public void isCek(){
         autoNomor();
         TCari.requestFocus();
-        Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
+       // Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
+       kdgudang.setText(depoaktif = koneksiDB.DEPOAKTIFRALAN());
         Sequel.cariIsi("select nm_bangsal from bangsal where kd_bangsal=?",nmgudang,kdgudang.getText());
         if(akses.getjml2()>=1){
             kdptg.setEditable(false);

@@ -39,7 +39,7 @@ public class DlgReturPiutang extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private PreparedStatement ps;
     private ResultSet rs;
-    private String aktifkanbatch="no";
+    private String aktifkanbatch="no",depoaktif="";
     private boolean sukses=true;
 
     /** Creates new form DlgProgramStudi
@@ -1412,7 +1412,8 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
      public void isCek(){
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(no_retur_piutang,3),signed)),0) from returpiutang where tgl_retur='"+Valid.SetTgl(TglRetur.getSelectedItem()+"")+"' ",
                 "RP"+TglRetur.getSelectedItem().toString().substring(6,10)+TglRetur.getSelectedItem().toString().substring(3,5)+TglRetur.getSelectedItem().toString().substring(0,2),3,NoRetur); 
-        Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
+        //Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
+        kdgudang.setText(depoaktif = koneksiDB.DEPOAKTIFRALAN());
         Sequel.cariIsi("select nm_bangsal from bangsal where kd_bangsal=?",nmgudang,kdgudang.getText());
         if(akses.getjml2()>=1){
             Kdptg.setEditable(false);

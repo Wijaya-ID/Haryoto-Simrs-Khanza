@@ -119,7 +119,7 @@ public final class DlgReg extends javax.swing.JDialog {
     private int pilihan=0,i=0,kuota=0,jmlparsial=0;
     private boolean ceksukses=false;
     private String nosisrute="",aktifkanparsial="no",BASENOREG="",
-            URUTNOREG="",status="Baru",order="reg_periksa.tgl_registrasi,reg_periksa.jam_reg desc",alamatperujuk="-",aktifjadwal="",IPPRINTERTRACER="",umur="0",sttsumur="Th",
+            URUTNOREG="",status="Baru",order="pasien.nm_pasien asc",alamatperujuk="-",aktifjadwal="",IPPRINTERTRACER="",umur="0",sttsumur="Th",
             validasiregistrasi=Sequel.cariIsi("select wajib_closing_kasir from set_validasi_registrasi"),
             validasicatatan=Sequel.cariIsi("select tampilkan_catatan from set_validasi_catatan");
     private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");

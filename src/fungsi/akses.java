@@ -145,7 +145,7 @@ public final class akses {
             pcare_cek_kartu=false,surat_bebas_narkoba=false,surat_keterangan_covid=false,pemakaian_air_tanah=false,grafik_air_tanah_pertanggal=false,
             grafik_air_tanah_perbulan=false,lama_pelayanan_poli=false,hemodialisa=false,grafik_harian_hemodialisa=false,grafik_bulanan_hemodialisa=false,
             grafik_tahunan_hemodialisa=false,grafik_bulanan_meninggal=false,laporan_tahunan_irj=false,perbaikan_inventaris=false,data_klasifikasi=false,
-            laporan_harian_klasifikasi=false,laporan_bulanan_klasifikasi=false,sisa_stok2=false;
+            laporan_harian_klasifikasi=false,laporan_bulanan_klasifikasi=false,sisa_stok2=false,pembayaran_ralan_rsud=false,pembayaran_ralan_rsud2=false;
     
     public static void setData(String user, String pass) {
        try {                
@@ -833,6 +833,8 @@ public final class akses {
                         akses.laporan_harian_klasifikasi=true;
                         akses.laporan_bulanan_klasifikasi=true;
                         akses.sisa_stok2=true;
+                        akses.pembayaran_ralan_rsud=true;
+                        akses.pembayaran_ralan_rsud2=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -1504,6 +1506,8 @@ public final class akses {
                         akses.laporan_harian_klasifikasi=rs2.getBoolean("laporan_harian_klasifikasi");
                         akses.laporan_bulanan_klasifikasi=rs2.getBoolean("laporan_bulanan_klasifikasi");
                         akses.sisa_stok2=rs2.getBoolean("sisa_stok2");
+                        akses.pembayaran_ralan_rsud=rs2.getBoolean("pembayaran_ralan_rsud");
+                        akses.pembayaran_ralan_rsud2=rs2.getBoolean("pembayaran_ralan_rsud2");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -2173,6 +2177,8 @@ public final class akses {
                         akses.laporan_harian_klasifikasi=false;
                         akses.laporan_bulanan_klasifikasi=false;
                         akses.sisa_stok2=false;
+                        akses.pembayaran_ralan_rsud=false;
+                        akses.pembayaran_ralan_rsud2=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -2896,5 +2902,7 @@ public final class akses {
     public static boolean getlaporan_harian_klasifikasi(){return akses.laporan_harian_klasifikasi;}
     public static boolean getlaporan_bulanan_klasifikasi(){return akses.laporan_bulanan_klasifikasi;}
     public static boolean getsisa_stok2(){return akses.sisa_stok2;}
+    public static boolean getpembayaran_ralan_rsud(){return akses.pembayaran_ralan_rsud;}
+    public static boolean getpembayaran_ralan_rsud2(){return akses.pembayaran_ralan_rsud2;}
     
 }   

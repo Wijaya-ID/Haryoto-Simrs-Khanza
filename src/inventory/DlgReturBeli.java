@@ -36,7 +36,7 @@ public class DlgReturBeli extends javax.swing.JDialog {
     private PreparedStatement ps;
     private ResultSet rs;
     private double ttlretur=0,jumlahretur=0,stokobat=0;
-    private String aktifkanbatch="no";
+    private String aktifkanbatch="no",depoaktif="";
     private boolean sukses=true;
 
     /** Creates new form DlgProgramStudi
@@ -1425,7 +1425,8 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
     
     public void isCek(){
         autonomer();
-        Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
+        //Sequel.cariIsi("select kd_bangsal from set_lokasi",kdgudang);
+        kdgudang.setText(depoaktif = koneksiDB.DEPOAKTIFRANAP());
         Sequel.cariIsi("select nm_bangsal from bangsal where kd_bangsal=?",nmgudang,kdgudang.getText());
         if(akses.getjml2()>=1){
             Kdptg.setEditable(false);

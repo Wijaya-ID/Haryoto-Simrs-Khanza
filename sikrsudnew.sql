@@ -10250,7 +10250,7 @@ CREATE TABLE `temporary_bayar_ralan` (
   `temp16` varchar(100) NOT NULL,
   `temp17` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=9502 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9712 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_bayar_ranap` */
 
@@ -10276,7 +10276,7 @@ CREATE TABLE `temporary_bayar_ranap` (
   `temp16` varchar(100) NOT NULL,
   `temp17` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_booking_registrasi` */
 
@@ -10460,7 +10460,7 @@ CREATE TABLE `temporary_lab` (
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_lama_pelayanan_radiologi` */
 

@@ -751,7 +751,7 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
                     "inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
                     "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-                    "where reg_periksa.status_lanjut='Ralan' AND NOT nm_poli='IGD' and reg_periksa.no_rawat not in (select piutang_pasien.no_rawat from piutang_pasien where piutang_pasien.no_rawat=reg_periksa.no_rawat) and "+
+                    "where reg_periksa.status_lanjut='Ralan' AND NOT nm_poli='IGD' AND NOT nm_poli='BBL' AND NOT nm_poli='Ambulance' AND NOT nm_poli='Jenazah' AND NOT nm_poli='Depo Obat' AND NOT nm_poli='-' and reg_periksa.no_rawat not in (select piutang_pasien.no_rawat from piutang_pasien where piutang_pasien.no_rawat=reg_periksa.no_rawat) and "+
                     "reg_periksa.tgl_registrasi between ? and ? order by reg_periksa.kd_dokter,reg_periksa.tgl_registrasi");
             }else{
                 ps= koneksi.prepareStatement(
@@ -760,7 +760,7 @@ private void BtnCari1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
                     "inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
                     "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-                    "where reg_periksa.status_lanjut='Ralan' AND NOT nm_poli='IGD' and reg_periksa.no_rawat not in (select piutang_pasien.no_rawat from piutang_pasien where piutang_pasien.no_rawat=reg_periksa.no_rawat) and "+
+                    "where reg_periksa.status_lanjut='Ralan' AND NOT nm_poli='IGD' AND NOT nm_poli='BBL' AND NOT nm_poli='Ambulance' AND NOT nm_poli='Jenazah' AND NOT nm_poli='Depo Obat' AND NOT nm_poli='-' and reg_periksa.no_rawat not in (select piutang_pasien.no_rawat from piutang_pasien where piutang_pasien.no_rawat=reg_periksa.no_rawat) and "+
                     "reg_periksa.tgl_registrasi between ? and ? and concat(reg_periksa.kd_poli,poliklinik.nm_poli) like ? and concat(reg_periksa.kd_dokter,dokter.nm_dokter) like ? and concat(reg_periksa.kd_pj,penjab.png_jawab) like ? order by reg_periksa.kd_dokter,reg_periksa.tgl_registrasi");
             }
                 

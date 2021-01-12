@@ -4061,7 +4061,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         panelBiasa2.setLayout(null);
 
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-09-2020" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-01-2021" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -4108,7 +4108,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel32.setBounds(176, 10, 20, 23);
 
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-09-2020" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-01-2021" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -4380,7 +4380,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel15.setPreferredSize(new java.awt.Dimension(70, 23));
         panelGlass8.add(jLabel15);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-09-2020" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-01-2021" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -4393,7 +4393,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabel17.setPreferredSize(new java.awt.Dimension(23, 23));
         panelGlass8.add(jLabel17);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-09-2020" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-01-2021" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -4990,13 +4990,13 @@ private void MnDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
         tbKasirRalan.requestFocus();
     }else{
-        if(Sequel.cariRegistrasi(TNoRw.getText())>0){
-            JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi ..!!");
-        }else{ 
+        //if(Sequel.cariRegistrasi(TNoRw.getText())>0){
+        //    JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi ..!!");
+        //}else{ 
             WindowGantiDokter.setSize(630,80);
             WindowGantiDokter.setLocationRelativeTo(internalFrame1);
             WindowGantiDokter.setVisible(true);
-        }  
+        //}  
     }
 }//GEN-LAST:event_MnDokterActionPerformed
 

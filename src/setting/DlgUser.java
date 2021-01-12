@@ -3790,12 +3790,12 @@ public class DlgUser extends javax.swing.JDialog {
                                     "grafik_bulanan_meninggal='"+tbUser.getValueAt(barisdicopy,662).toString()+"',"+
                                     "perbaikan_inventaris='"+tbUser.getValueAt(barisdicopy,663).toString()+"',"+
                                     "data_klasifikasi='"+tbUser.getValueAt(barisdicopy,664).toString()+"',"+
-                                    "laporan_harian_klasifikasi='"+tbUser.getValueAt(i,665).toString()+"',"+
-                                    "laporan_bulanan_klasifikasi='"+tbUser.getValueAt(i,666).toString()+"',"+
-                                    "sisa_stok2='"+tbUser.getValueAt(i,667).toString()+"',"+
-                                    "pembayaran_ralan_rsud='"+tbUser.getValueAt(i,668).toString()+"',"+
-                                    "pembayaran_ralan_rsud2='"+tbUser.getValueAt(i,669).toString()+"',"+
-                                    "pembayaran_ralan_rsud3='"+tbUser.getValueAt(i,670).toString()+"'");
+                                    "laporan_harian_klasifikasi='"+tbUser.getValueAt(barisdicopy,665).toString()+"',"+
+                                    "laporan_bulanan_klasifikasi='"+tbUser.getValueAt(barisdicopy,666).toString()+"',"+
+                                    "sisa_stok2='"+tbUser.getValueAt(barisdicopy,667).toString()+"',"+
+                                    "pembayaran_ralan_rsud='"+tbUser.getValueAt(barisdicopy,668).toString()+"',"+
+                                    "pembayaran_ralan_rsud2='"+tbUser.getValueAt(barisdicopy,669).toString()+"',"+
+                                    "pembayaran_ralan_rsud3='"+tbUser.getValueAt(barisdicopy,670).toString()+"'");
                             }    
                             userdicopy="";
                             copyhakakses="";

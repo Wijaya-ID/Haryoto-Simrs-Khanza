@@ -145,7 +145,8 @@ public final class akses {
             pcare_cek_kartu=false,surat_bebas_narkoba=false,surat_keterangan_covid=false,pemakaian_air_tanah=false,grafik_air_tanah_pertanggal=false,
             grafik_air_tanah_perbulan=false,lama_pelayanan_poli=false,hemodialisa=false,grafik_harian_hemodialisa=false,grafik_bulanan_hemodialisa=false,
             grafik_tahunan_hemodialisa=false,grafik_bulanan_meninggal=false,laporan_tahunan_irj=false,perbaikan_inventaris=false,data_klasifikasi=false,
-            laporan_harian_klasifikasi=false,laporan_bulanan_klasifikasi=false,sisa_stok2=false,pembayaran_ralan_rsud=false,pembayaran_ralan_rsud2=false,pembayaran_ralan_rsud3=false;
+            laporan_harian_klasifikasi=false,laporan_bulanan_klasifikasi=false,sisa_stok2=false,pembayaran_ralan_rsud=false,pembayaran_ralan_rsud2=false,
+            pembayaran_ralan_rsud3=false,penyiapan_rm=false;
     
     public static void setData(String user, String pass) {
        try {                
@@ -836,6 +837,7 @@ public final class akses {
                         akses.pembayaran_ralan_rsud=true;
                         akses.pembayaran_ralan_rsud2=true;
                         akses.pembayaran_ralan_rsud3=true;
+                        akses.penyiapan_rm=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -1510,6 +1512,7 @@ public final class akses {
                         akses.pembayaran_ralan_rsud=rs2.getBoolean("pembayaran_ralan_rsud");
                         akses.pembayaran_ralan_rsud2=rs2.getBoolean("pembayaran_ralan_rsud2");
                         akses.pembayaran_ralan_rsud3=rs2.getBoolean("pembayaran_ralan_rsud3");
+                        akses.penyiapan_rm=rs2.getBoolean("penyiapan_rm");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -2182,6 +2185,7 @@ public final class akses {
                         akses.pembayaran_ralan_rsud=false;
                         akses.pembayaran_ralan_rsud2=false;
                         akses.pembayaran_ralan_rsud3=false;
+                        akses.penyiapan_rm=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -2908,4 +2912,6 @@ public final class akses {
     public static boolean getpembayaran_ralan_rsud(){return akses.pembayaran_ralan_rsud;}
     public static boolean getpembayaran_ralan_rsud2(){return akses.pembayaran_ralan_rsud2;}
     public static boolean getpembayaran_ralan_rsud3(){return akses.pembayaran_ralan_rsud3;}
+    public static boolean getpenyiapan_rm(){return akses.penyiapan_rm;}
+    
 }   

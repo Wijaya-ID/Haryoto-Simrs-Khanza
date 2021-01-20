@@ -910,6 +910,7 @@ public final class DlgReg extends javax.swing.JDialog {
         MnCheckList6 = new javax.swing.JMenuItem();
         MnCheckList7 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        MnKartuPasien = new javax.swing.JMenuItem();
         MnGelang1 = new javax.swing.JMenuItem();
         MnGelang2 = new javax.swing.JMenuItem();
         MnLabelTracker = new javax.swing.JMenuItem();
@@ -965,6 +966,8 @@ public final class DlgReg extends javax.swing.JDialog {
         MnUrutRegAsc1 = new javax.swing.JMenuItem();
         MnUrutRMDesc = new javax.swing.JMenuItem();
         MnUrutRMAsc = new javax.swing.JMenuItem();
+        MnUrutNamaDesc = new javax.swing.JMenuItem();
+        MnUrutNamaAsc = new javax.swing.JMenuItem();
         MnHapusData = new javax.swing.JMenu();
         MnHapusTagihanOperasi = new javax.swing.JMenuItem();
         MnHapusObatOperasi = new javax.swing.JMenuItem();
@@ -2507,6 +2510,23 @@ public final class DlgReg extends javax.swing.JDialog {
         jMenu6.setName("jMenu6"); // NOI18N
         jMenu6.setPreferredSize(new java.awt.Dimension(260, 26));
 
+        MnKartuPasien.setBackground(new java.awt.Color(255, 255, 254));
+        MnKartuPasien.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnKartuPasien.setForeground(new java.awt.Color(50, 50, 50));
+        MnKartuPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnKartuPasien.setText("Kartu Pasien");
+        MnKartuPasien.setActionCommand("Kartu Pasien");
+        MnKartuPasien.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnKartuPasien.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnKartuPasien.setName("MnKartuPasien"); // NOI18N
+        MnKartuPasien.setPreferredSize(new java.awt.Dimension(200, 26));
+        MnKartuPasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnKartuPasienActionPerformed(evt);
+            }
+        });
+        jMenu6.add(MnKartuPasien);
+
         MnGelang1.setBackground(new java.awt.Color(255, 255, 254));
         MnGelang1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnGelang1.setForeground(new java.awt.Color(50, 50, 50));
@@ -3349,6 +3369,38 @@ public final class DlgReg extends javax.swing.JDialog {
             }
         });
         MnUrut.add(MnUrutRMAsc);
+
+        MnUrutNamaDesc.setBackground(new java.awt.Color(255, 255, 254));
+        MnUrutNamaDesc.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnUrutNamaDesc.setForeground(new java.awt.Color(50, 50, 50));
+        MnUrutNamaDesc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnUrutNamaDesc.setText("Nama Descending");
+        MnUrutNamaDesc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnUrutNamaDesc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnUrutNamaDesc.setName("MnUrutNamaDesc"); // NOI18N
+        MnUrutNamaDesc.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnUrutNamaDesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnUrutNamaDescActionPerformed(evt);
+            }
+        });
+        MnUrut.add(MnUrutNamaDesc);
+
+        MnUrutNamaAsc.setBackground(new java.awt.Color(255, 255, 254));
+        MnUrutNamaAsc.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnUrutNamaAsc.setForeground(new java.awt.Color(50, 50, 50));
+        MnUrutNamaAsc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnUrutNamaAsc.setText("Nama Ascending");
+        MnUrutNamaAsc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnUrutNamaAsc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnUrutNamaAsc.setName("MnUrutNamaAsc"); // NOI18N
+        MnUrutNamaAsc.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnUrutNamaAsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnUrutNamaAscActionPerformed(evt);
+            }
+        });
+        MnUrut.add(MnUrutNamaAsc);
 
         jPopupMenu1.add(MnUrut);
 
@@ -4389,7 +4441,7 @@ public final class DlgReg extends javax.swing.JDialog {
         jLabel15.setPreferredSize(new java.awt.Dimension(60, 23));
         panelGlass7.add(jLabel15);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-01-2021" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-01-2021" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -4402,7 +4454,7 @@ public final class DlgReg extends javax.swing.JDialog {
         jLabel17.setPreferredSize(new java.awt.Dimension(24, 23));
         panelGlass7.add(jLabel17);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-01-2021" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-01-2021" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -4542,7 +4594,7 @@ public final class DlgReg extends javax.swing.JDialog {
         FormInput.add(jLabel9);
         jLabel9.setBounds(165, 72, 36, 23);
 
-        DTPReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-01-2021" }));
+        DTPReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-01-2021" }));
         DTPReg.setDisplayFormat("dd-MM-yyyy");
         DTPReg.setName("DTPReg"); // NOI18N
         DTPReg.setOpaque(false);
@@ -5374,7 +5426,13 @@ public final class DlgReg extends javax.swing.JDialog {
                 }else if(i==6){
                     MnCetakRegisterActionPerformed(null);
                 }else if(i==7){
-                    MnBuktiPelayananRalanActionPerformed(null);
+                    //MnBuktiPelayananRalanActionPerformed(null);
+                    MnCetakRegisterActionPerformed(null);
+                    MnLabelTrackerActionPerformed(null);
+                    MnLabelTracker1ActionPerformed(null);
+                    if(TStatus.getText().equals("Baru")){
+                    MnKartuPasienActionPerformed(null);
+                    }
                 }
             }else if(evt.getKeyCode()==KeyEvent.VK_A){                
                 for(i=0;i<tbPetugas.getRowCount();i++){ 
@@ -8766,6 +8824,35 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     }//GEN-LAST:event_KdPtgKeyPressed
 
+    private void MnKartuPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKartuPasienActionPerformed
+            if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            Map<String, Object> param = new HashMap<>();
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());
+            param.put("no_rawat",TNoRw.getText());
+            param.put("logo",Sequel.cariGambar("select logo from setting"));
+            Valid.MyReport("rptKartuPx.jasper",param,"::[ Kartu Pasien ]::");
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_MnKartuPasienActionPerformed
+
+    private void MnUrutNamaDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnUrutNamaDescActionPerformed
+        order="pasien.nm_pasien desc";
+        tampil();
+    }//GEN-LAST:event_MnUrutNamaDescActionPerformed
+
+    private void MnUrutNamaAscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnUrutNamaAscActionPerformed
+        order="pasien.nm_pasien asc";
+        tampil();
+    }//GEN-LAST:event_MnUrutNamaAscActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -8875,6 +8962,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private javax.swing.JMenuItem MnJadwalOperasi1;
     private javax.swing.JMenuItem MnKamarInap;
     private javax.swing.JMenuItem MnKamarInap1;
+    private javax.swing.JMenuItem MnKartuPasien;
     private javax.swing.JMenuItem MnLabelTracker;
     private javax.swing.JMenuItem MnLabelTracker1;
     private javax.swing.JMenuItem MnLabelTracker2;
@@ -8951,6 +9039,8 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private javax.swing.JMenuItem MnUrutDokterAsc1;
     private javax.swing.JMenuItem MnUrutDokterDesc;
     private javax.swing.JMenuItem MnUrutDokterDesc1;
+    private javax.swing.JMenuItem MnUrutNamaAsc;
+    private javax.swing.JMenuItem MnUrutNamaDesc;
     private javax.swing.JMenuItem MnUrutNoRawatAsc;
     private javax.swing.JMenuItem MnUrutNoRawatAsc1;
     private javax.swing.JMenuItem MnUrutNoRawatDesc;

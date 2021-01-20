@@ -563,6 +563,7 @@ import laporan.DlgHarianKlasifikasi;
 import laporan.DlgKIPPasienRalan;
 import laporan.DlgKIPPasienRanap;
 import laporan.DlgPelayananPoli;
+import laporan.DlgPenyiapanRM;
 import laporan.DlgRekapKunjungan;
 import laporan.DlgRekapMutasiBerkas;
 import laporan.DlgRekapPermintaanDiet;
@@ -1301,6 +1302,7 @@ public class frmUtama extends javax.swing.JFrame {
         btnPembayaranRalanRsud = new widget.ButtonBig();
         btnPembayaranRalanRsud2 = new widget.ButtonBig();
         btnPembayaranRalanRsud3 = new widget.ButtonBig();
+        btnLamaPenyiapanRM = new widget.ButtonBig();
         internalFrame1 = new widget.InternalFrame();
         BtnMenu = new widget.ButtonBig();
         jSeparator4 = new javax.swing.JSeparator();
@@ -6689,6 +6691,17 @@ public class frmUtama extends javax.swing.JFrame {
         btnPembayaranRalanRsud3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPembayaranRalanRsud3ActionPerformed(evt);
+            }
+        });
+
+        btnLamaPenyiapanRM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/Gnome-X-Office-Address-Book-48.png"))); // NOI18N
+        btnLamaPenyiapanRM.setText("SPM BRM");
+        btnLamaPenyiapanRM.setIconTextGap(0);
+        btnLamaPenyiapanRM.setName("btnLamaPenyiapanRM"); // NOI18N
+        btnLamaPenyiapanRM.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnLamaPenyiapanRM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamaPenyiapanRMActionPerformed(evt);
             }
         });
 
@@ -14111,6 +14124,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnPembayaranRalanRsud3ActionPerformed
 
+    private void btnLamaPenyiapanRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamaPenyiapanRMActionPerformed
+        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPenyiapanRM aplikasi=new DlgPenyiapanRM(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_btnLamaPenyiapanRMActionPerformed
+
     private void btnKategoriPerpustakaanActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -16807,6 +16832,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.ButtonBig btnLamaPelayananLab;
     private widget.ButtonBig btnLamaPelayananRadiologi;
     private widget.ButtonBig btnLamaPelayananRalan;
+    private widget.ButtonBig btnLamaPenyiapanRM;
     private widget.ButtonBig btnLihatPiutang;
     private widget.ButtonBig btnLimbahB3Medis;
     private widget.ButtonBig btnLimbahDomestik;
@@ -18708,6 +18734,10 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
 
             if(akses.getlaporan_bulanan_klasifikasi()==true){
                     Panelmenu.add(btnBulananKlasifikasi);
+                    jmlmenu++;
+            }
+            if(akses.getpenyiapan_rm()==true){
+                    Panelmenu.add(btnLamaPenyiapanRM);
                     jmlmenu++;
             }
         
@@ -22058,6 +22088,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
         }
         
+        if(akses.getpenyiapan_rm()==true){
+                    Panelmenu.add(btnLamaPenyiapanRM);
+                    jmlmenu++;
+            }
+        
         if(akses.getkamar()==true){
             Panelmenu.add(btnKamar);
             jmlmenu++;
@@ -25037,6 +25072,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getlaporan_bulanan_klasifikasi()==true){
             if(btnBulananKlasifikasi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnBulananKlasifikasi);
+                jmlmenu++;
+            }                
+        } 
+        
+        if(akses.getpenyiapan_rm()==true){
+            if(btnLamaPenyiapanRM.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnLamaPenyiapanRM);
                 jmlmenu++;
             }                
         } 

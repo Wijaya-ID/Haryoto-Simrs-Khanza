@@ -170,7 +170,8 @@ public class DlgUser extends javax.swing.JDialog {
                 "[L]Master Masalah Keperawatan Bayi/Anak","[L]Master Imunisasi","[R]Patologis Penerima Dankes","[K]Cek No.Kartu PCare","[O]Surat Bebas Narkoba",
                 "[O]Surat Keterangan Covid","[F]Pemakaian Air Tanah","[N]Pemakaian Air Tanah Per Tanggal","[N]Pemakaian Air Tanah Per Bulan",
                 "[I]Lama Pelayanan Poli","[L]Hemodialisa","[I]Laporan Tahunan IRJ","[N]Hemodialisa Per Tanggal","[N]Hemodialisa Per Bulan","[N]Hemodialisa Per Tahun",
-                "[N]Pasien Meninggal Per Bulan","[F]Perbaikan Inventaris","[L]Data Klasifikasi","[I]Harian Klasifikasi","[I]Bulanan Klasifikasi","[D]Sisa Stok 2","[H]Pembayaran Ralan Poli RSUD","[H]Pembayaran Ralan Sentral RSUD","[H]Pembayaran Ralan Obat RSUD"
+                "[N]Pasien Meninggal Per Bulan","[F]Perbaikan Inventaris","[L]Data Klasifikasi","[I]Harian Klasifikasi","[I]Bulanan Klasifikasi","[D]Sisa Stok 2",
+                "[H]Pembayaran Ralan Poli RSUD","[H]Pembayaran Ralan Sentral RSUD","[H]Pembayaran Ralan Obat RSUD","[I]SPM BRM",
         };
         
         tabMode=new DefaultTableModel(null,row){
@@ -2330,7 +2331,7 @@ public class DlgUser extends javax.swing.JDialog {
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
-                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
+                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
                 tampil();
                 emptTeks();
             }            
@@ -3043,7 +3044,8 @@ public class DlgUser extends javax.swing.JDialog {
                     "sisa_stok2='"+tbUser.getValueAt(i,667).toString()+"',"+
                     "pembayaran_ralan_rsud='"+tbUser.getValueAt(i,668).toString()+"',"+
                     "pembayaran_ralan_rsud2='"+tbUser.getValueAt(i,669).toString()+"',"+
-                    "pembayaran_ralan_rsud3='"+tbUser.getValueAt(i,670).toString()+"'");
+                    "pembayaran_ralan_rsud3='"+tbUser.getValueAt(i,670).toString()+"',"+
+                    "penyiapan_rm='"+tbUser.getValueAt(i,671).toString()+"'");
             }            
             tampil();
             emptTeks();
@@ -3795,7 +3797,8 @@ public class DlgUser extends javax.swing.JDialog {
                                     "sisa_stok2='"+tbUser.getValueAt(barisdicopy,667).toString()+"',"+
                                     "pembayaran_ralan_rsud='"+tbUser.getValueAt(barisdicopy,668).toString()+"',"+
                                     "pembayaran_ralan_rsud2='"+tbUser.getValueAt(barisdicopy,669).toString()+"',"+
-                                    "pembayaran_ralan_rsud3='"+tbUser.getValueAt(barisdicopy,670).toString()+"'");
+                                    "pembayaran_ralan_rsud3='"+tbUser.getValueAt(barisdicopy,670).toString()+"',"+
+                                    "penyiapan_rm='"+tbUser.getValueAt(barisdicopy,671).toString()+"'");
                             }    
                             userdicopy="";
                             copyhakakses="";
@@ -4118,7 +4121,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         "zis_patologis_penerima_dankes,pcare_cek_kartu,surat_bebas_narkoba,surat_keterangan_covid,pemakaian_air_tanah,"+
                         "grafik_air_tanah_pertanggal,grafik_air_tanah_perbulan,lama_pelayanan_poli,hemodialisa,laporan_tahunan_irj,"+
                         "grafik_harian_hemodialisa,grafik_bulanan_hemodialisa,grafik_tahunan_hemodialisa,grafik_bulanan_meninggal,"+
-                        "perbaikan_inventaris,data_klasifikasi,laporan_harian_klasifikasi,laporan_bulanan_klasifikasi,sisa_stok2,pembayaran_ralan_rsud,pembayaran_ralan_rsud2,pembayaran_ralan_rsud3 from user order by AES_DECRYPT(id_user,'nur')");
+                        "perbaikan_inventaris,data_klasifikasi,laporan_harian_klasifikasi,laporan_bulanan_klasifikasi,sisa_stok2,pembayaran_ralan_rsud,pembayaran_ralan_rsud2,pembayaran_ralan_rsud3,penyiapan_rm from user order by AES_DECRYPT(id_user,'nur')");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -4802,6 +4805,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("pembayaran_ralan_rsud"),
                                rs.getBoolean("pembayaran_ralan_rsud2"),
                                rs.getBoolean("pembayaran_ralan_rsud3"),
+                               rs.getBoolean("penyiapan_rm"),
 
                             });
                         }   
@@ -5475,7 +5479,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("pembayaran_ralan_rsud"),
                            rs.getBoolean("pembayaran_ralan_rsud2"),
                            rs.getBoolean("pembayaran_ralan_rsud3"),
-                                                            
+                           rs.getBoolean("penyiapan_rm"),
+                                     
                         });
                     }                                             
                  }

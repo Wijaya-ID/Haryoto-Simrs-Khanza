@@ -142,8 +142,8 @@ DROP TABLE IF EXISTS `antrics`;
 CREATE TABLE `antrics` (
   `loket` int(11) NOT NULL,
   `antrian` int(11) NOT NULL,
-  KEY `loket` (`loket`),
-  KEY `antrian` (`antrian`)
+  KEY `antrian` (`antrian`),
+  KEY `loket` (`loket`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Table structure for table `antriloket` */
@@ -164,8 +164,8 @@ DROP TABLE IF EXISTS `antriprioritas`;
 CREATE TABLE `antriprioritas` (
   `loket` int(11) NOT NULL,
   `antrian` int(11) NOT NULL,
-  KEY `loket` (`loket`),
-  KEY `antrian` (`antrian`)
+  KEY `antrian` (`antrian`),
+  KEY `loket` (`loket`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Table structure for table `aplicare_ketersediaan_kamar` */
@@ -283,7 +283,7 @@ CREATE TABLE `bahasa_pasien` (
   `nama_bahasa` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nama_bahasa` (`nama_bahasa`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `balasan_pengaduan` */
 
@@ -936,26 +936,26 @@ CREATE TABLE `data_hais` (
   `URINE` varchar(200) DEFAULT NULL,
   `ANTIBIOTIK` varchar(200) DEFAULT NULL,
   `kd_kamar` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`tanggal`,`no_rawat`),
-  KEY `no_rawat` (`no_rawat`),
-  KEY `ETT` (`ETT`),
-  KEY `CVL` (`CVL`),
-  KEY `IVL` (`IVL`),
-  KEY `SPUTUM` (`SPUTUM`),
-  KEY `ANTIBIOTIK` (`ANTIBIOTIK`),
-  KEY `DARAH` (`DARAH`),
-  KEY `URINE` (`URINE`),
-  KEY `DEKU` (`DEKU`),
-  KEY `ISK` (`ISK`),
-  KEY `PLEB` (`PLEB`),
-  KEY `IAD` (`IAD`),
-  KEY `VAP` (`VAP`),
-  KEY `UC` (`UC`),
-  KEY `ILO` (`ILO`),
-  KEY `kd_kamar` (`kd_kamar`),
+  PRIMARY KEY (`tanggal`,`no_rawat`) USING BTREE,
+  KEY `no_rawat` (`no_rawat`) USING BTREE,
+  KEY `ETT` (`ETT`) USING BTREE,
+  KEY `CVL` (`CVL`) USING BTREE,
+  KEY `IVL` (`IVL`) USING BTREE,
+  KEY `SPUTUM` (`SPUTUM`) USING BTREE,
+  KEY `ANTIBIOTIK` (`ANTIBIOTIK`) USING BTREE,
+  KEY `DARAH` (`DARAH`) USING BTREE,
+  KEY `URINE` (`URINE`) USING BTREE,
+  KEY `DEKU` (`DEKU`) USING BTREE,
+  KEY `ISK` (`ISK`) USING BTREE,
+  KEY `PLEB` (`PLEB`) USING BTREE,
+  KEY `IAD` (`IAD`) USING BTREE,
+  KEY `VAP` (`VAP`) USING BTREE,
+  KEY `UC` (`UC`) USING BTREE,
+  KEY `ILO` (`ILO`) USING BTREE,
+  KEY `kd_kamar` (`kd_kamar`) USING BTREE,
   CONSTRAINT `data_HAIs_ibfk_1` FOREIGN KEY (`no_rawat`) REFERENCES `reg_periksa` (`no_rawat`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `data_HAIs_ibfk_2` FOREIGN KEY (`kd_kamar`) REFERENCES `kamar` (`kd_kamar`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `data_klasifikasi` */
 
@@ -972,7 +972,7 @@ CREATE TABLE `data_klasifikasi` (
   KEY `no_rawat` (`no_rawat`),
   KEY `DEKU` (`Partial`),
   KEY `kd_kamar` (`kd_kamar`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Table structure for table `data_tb` */
 
@@ -1558,8 +1558,8 @@ CREATE TABLE `detail_piutang_pasien` (
   `sisapiutang` double DEFAULT NULL,
   `tgltempo` date DEFAULT NULL,
   PRIMARY KEY (`no_rawat`,`nama_bayar`),
-  KEY `kd_pj` (`kd_pj`),
   KEY `nama_bayar` (`nama_bayar`),
+  KEY `kd_pj` (`kd_pj`),
   CONSTRAINT `detail_piutang_pasien_ibfk_3` FOREIGN KEY (`kd_pj`) REFERENCES `penjab` (`kd_pj`) ON UPDATE CASCADE,
   CONSTRAINT `detail_piutang_pasien_ibfk_4` FOREIGN KEY (`nama_bayar`) REFERENCES `akun_piutang` (`nama_bayar`) ON UPDATE CASCADE,
   CONSTRAINT `detail_piutang_pasien_ibfk_5` FOREIGN KEY (`no_rawat`) REFERENCES `reg_periksa` (`no_rawat`) ON UPDATE CASCADE
@@ -2020,8 +2020,8 @@ CREATE TABLE `emergency_index` (
   `kode_emergency` varchar(3) NOT NULL,
   `nama_emergency` varchar(200) DEFAULT NULL,
   `indek` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`kode_emergency`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`kode_emergency`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `evaluasi_kinerja` */
 
@@ -2031,8 +2031,8 @@ CREATE TABLE `evaluasi_kinerja` (
   `kode_evaluasi` varchar(3) NOT NULL,
   `nama_evaluasi` varchar(200) DEFAULT NULL,
   `indek` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`kode_evaluasi`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`kode_evaluasi`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `evaluasi_kinerja_pegawai` */
 
@@ -2044,11 +2044,11 @@ CREATE TABLE `evaluasi_kinerja_pegawai` (
   `tahun` year(4) NOT NULL,
   `bulan` tinyint(4) NOT NULL,
   `keterangan` varchar(150) DEFAULT NULL,
-  PRIMARY KEY (`id`,`kode_evaluasi`,`tahun`,`bulan`),
-  KEY `kode_evaluasi` (`kode_evaluasi`),
+  PRIMARY KEY (`id`,`kode_evaluasi`,`tahun`,`bulan`) USING BTREE,
+  KEY `kode_evaluasi` (`kode_evaluasi`) USING BTREE,
   CONSTRAINT `evaluasi_kinerja_pegawai_ibfk_1` FOREIGN KEY (`id`) REFERENCES `pegawai` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `evaluasi_kinerja_pegawai_ibfk_2` FOREIGN KEY (`kode_evaluasi`) REFERENCES `evaluasi_kinerja` (`kode_evaluasi`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `failed_jobs` */
 
@@ -2412,9 +2412,9 @@ DROP TABLE IF EXISTS `inhealth_maping_dokter`;
 CREATE TABLE `inhealth_maping_dokter` (
   `kd_dokter` varchar(20) NOT NULL,
   `kd_inhealth` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`kd_dokter`),
+  PRIMARY KEY (`kd_dokter`) USING BTREE,
   CONSTRAINT `inhealth_maping_dokter_ibfk_1` FOREIGN KEY (`kd_dokter`) REFERENCES `dokter` (`kd_dokter`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `inhealth_maping_poli` */
 
@@ -2424,9 +2424,9 @@ CREATE TABLE `inhealth_maping_poli` (
   `kd_poli_rs` varchar(5) NOT NULL,
   `kd_poli_inhealth` varchar(15) DEFAULT NULL,
   `nm_poli_inhealth` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`kd_poli_rs`),
+  PRIMARY KEY (`kd_poli_rs`) USING BTREE,
   CONSTRAINT `inhealth_maping_poli_ibfk_1` FOREIGN KEY (`kd_poli_rs`) REFERENCES `poliklinik` (`kd_poli`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `inhealth_tindakan_laborat` */
 
@@ -2457,9 +2457,9 @@ DROP TABLE IF EXISTS `inhealth_tindakan_radiologi`;
 CREATE TABLE `inhealth_tindakan_radiologi` (
   `kd_jenis_prw` varchar(15) NOT NULL,
   `kd_inhealth` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`kd_jenis_prw`),
+  PRIMARY KEY (`kd_jenis_prw`) USING BTREE,
   CONSTRAINT `inhealth_tindakan_radiologi_ibfk_1` FOREIGN KEY (`kd_jenis_prw`) REFERENCES `jns_perawatan_radiologi` (`kd_jenis_prw`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `inhealth_tindakan_ralan` */
 
@@ -2468,9 +2468,9 @@ DROP TABLE IF EXISTS `inhealth_tindakan_ralan`;
 CREATE TABLE `inhealth_tindakan_ralan` (
   `kd_jenis_prw` varchar(15) NOT NULL,
   `kd_inhealth` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`kd_jenis_prw`),
+  PRIMARY KEY (`kd_jenis_prw`) USING BTREE,
   CONSTRAINT `inhealth_tindakan_ralan_ibfk_1` FOREIGN KEY (`kd_jenis_prw`) REFERENCES `jns_perawatan` (`kd_jenis_prw`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `inhealth_tindakan_ranap` */
 
@@ -2479,9 +2479,9 @@ DROP TABLE IF EXISTS `inhealth_tindakan_ranap`;
 CREATE TABLE `inhealth_tindakan_ranap` (
   `kd_jenis_prw` varchar(15) NOT NULL,
   `kd_inhealth` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`kd_jenis_prw`),
+  PRIMARY KEY (`kd_jenis_prw`) USING BTREE,
   CONSTRAINT `inhealth_tindakan_ranap_ibfk_1` FOREIGN KEY (`kd_jenis_prw`) REFERENCES `jns_perawatan_inap` (`kd_jenis_prw`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `insiden_keselamatan` */
 
@@ -2967,7 +2967,7 @@ CREATE TABLE `jabatan_tni` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_jabatan` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `jadwal` */
 
@@ -3518,7 +3518,7 @@ CREATE TABLE `kabupaten` (
   `nm_kab` varchar(60) NOT NULL,
   PRIMARY KEY (`kd_kab`),
   UNIQUE KEY `nm_kab` (`nm_kab`)
-) ENGINE=InnoDB AUTO_INCREMENT=243 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1902 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `kamar` */
 
@@ -3679,7 +3679,7 @@ CREATE TABLE `kecamatan` (
   `nm_kec` varchar(60) NOT NULL,
   PRIMARY KEY (`kd_kec`),
   UNIQUE KEY `nm_kec` (`nm_kec`)
-) ENGINE=InnoDB AUTO_INCREMENT=511 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6841 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `kegiatan` */
 
@@ -3707,8 +3707,8 @@ CREATE TABLE `kelompok_jabatan` (
   `kode_kelompok` varchar(3) NOT NULL,
   `nama_kelompok` varchar(100) DEFAULT NULL,
   `indek` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`kode_kelompok`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`kode_kelompok`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `kelurahan` */
 
@@ -3719,7 +3719,7 @@ CREATE TABLE `kelurahan` (
   `nm_kel` varchar(60) NOT NULL,
   PRIMARY KEY (`kd_kel`),
   UNIQUE KEY `nm_kel` (`nm_kel`)
-) ENGINE=InnoDB AUTO_INCREMENT=1452 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41528 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `kesling_limbah_b3medis` */
 
@@ -3874,30 +3874,23 @@ CREATE TABLE `laporan_operasi` (
   `selesaioperasi` datetime NOT NULL,
   `permintaan_pa` enum('Ya','Tidak') NOT NULL,
   `laporan_operasi` text NOT NULL,
-  PRIMARY KEY (`no_rawat`,`tanggal`),
+  PRIMARY KEY (`no_rawat`,`tanggal`) USING BTREE,
   CONSTRAINT `laporan_operasi_ibfk_1` FOREIGN KEY (`no_rawat`) REFERENCES `reg_periksa` (`no_rawat`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
-/*Table structure for table `lite_login_attempts` */
+/*Table structure for table `lite_antrian_loket` */
 
-DROP TABLE IF EXISTS `lite_login_attempts`;
+DROP TABLE IF EXISTS `lite_antrian_loket`;
 
-CREATE TABLE `lite_login_attempts` (
-  `ip` text NOT NULL,
-  `attempts` int(11) NOT NULL,
-  `expires` int(11) NOT NULL DEFAULT 0
+CREATE TABLE `lite_antrian_loket` (
+  `kd` int(50) NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) NOT NULL,
+  `noantrian` varchar(50) NOT NULL,
+  `postdate` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL DEFAULT '00:00:00',
+  PRIMARY KEY (`kd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Table structure for table `lite_modules` */
-
-DROP TABLE IF EXISTS `lite_modules`;
-
-CREATE TABLE `lite_modules` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dir` text DEFAULT NULL,
-  `sequence` text DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `lite_options` */
 
@@ -3909,32 +3902,7 @@ CREATE TABLE `lite_options` (
   `field` varchar(250) NOT NULL,
   `value` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Table structure for table `lite_remember_me` */
-
-DROP TABLE IF EXISTS `lite_remember_me`;
-
-CREATE TABLE `lite_remember_me` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `token` text NOT NULL,
-  `user_id` varchar(50) NOT NULL,
-  `expiry` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Table structure for table `lite_roles` */
-
-DROP TABLE IF EXISTS `lite_roles`;
-
-CREATE TABLE `lite_roles` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `role` varchar(50) NOT NULL DEFAULT 'admin',
-  `cap` varchar(50) NOT NULL DEFAULT '-',
-  `access` varchar(250) NOT NULL DEFAULT 'all',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=994 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `log_dukcapil_aceh` */
 
@@ -4213,7 +4181,7 @@ CREATE TABLE `master_tunjangan_bulanan` (
   PRIMARY KEY (`id`),
   KEY `nama` (`nama`),
   KEY `tnj` (`tnj`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `master_tunjangan_harian` */
 
@@ -4247,20 +4215,20 @@ CREATE TABLE `matrik_akun_jns_perawatan` (
   `utang_jasa_sarana` varchar(15) DEFAULT NULL,
   `beban_menejemen` varchar(15) DEFAULT NULL,
   `utang_menejemen` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`kd_jenis_prw`),
-  KEY `beban_jasa_dokter` (`beban_jasa_dokter`),
-  KEY `beban_jasa_paramedis` (`beban_jasa_paramedis`),
-  KEY `beban_jasa_sarana` (`beban_jasa_sarana`),
-  KEY `beban_kso` (`beban_kso`),
-  KEY `beban_menejemen` (`beban_menejemen`),
-  KEY `hpp_persediaan` (`hpp_persediaan`),
-  KEY `pendapatan_tindakan` (`pendapatan_tindakan`),
-  KEY `persediaan_bhp` (`persediaan_bhp`),
-  KEY `utang_jasa_dokter` (`utang_jasa_dokter`),
-  KEY `utang_jasa_paramedis` (`utang_jasa_paramedis`),
-  KEY `utang_jasa_sarana` (`utang_jasa_sarana`),
-  KEY `utang_kso` (`utang_kso`),
-  KEY `utang_menejemen` (`utang_menejemen`),
+  PRIMARY KEY (`kd_jenis_prw`) USING BTREE,
+  KEY `beban_jasa_dokter` (`beban_jasa_dokter`) USING BTREE,
+  KEY `beban_jasa_paramedis` (`beban_jasa_paramedis`) USING BTREE,
+  KEY `beban_jasa_sarana` (`beban_jasa_sarana`) USING BTREE,
+  KEY `beban_kso` (`beban_kso`) USING BTREE,
+  KEY `beban_menejemen` (`beban_menejemen`) USING BTREE,
+  KEY `hpp_persediaan` (`hpp_persediaan`) USING BTREE,
+  KEY `pendapatan_tindakan` (`pendapatan_tindakan`) USING BTREE,
+  KEY `persediaan_bhp` (`persediaan_bhp`) USING BTREE,
+  KEY `utang_jasa_dokter` (`utang_jasa_dokter`) USING BTREE,
+  KEY `utang_jasa_paramedis` (`utang_jasa_paramedis`) USING BTREE,
+  KEY `utang_jasa_sarana` (`utang_jasa_sarana`) USING BTREE,
+  KEY `utang_kso` (`utang_kso`) USING BTREE,
+  KEY `utang_menejemen` (`utang_menejemen`) USING BTREE,
   CONSTRAINT `matrik_akun_jns_perawatan_ibfk_1` FOREIGN KEY (`kd_jenis_prw`) REFERENCES `jns_perawatan` (`kd_jenis_prw`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_ibfk_10` FOREIGN KEY (`utang_jasa_dokter`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_ibfk_11` FOREIGN KEY (`utang_jasa_paramedis`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -4275,7 +4243,7 @@ CREATE TABLE `matrik_akun_jns_perawatan` (
   CONSTRAINT `matrik_akun_jns_perawatan_ibfk_7` FOREIGN KEY (`hpp_persediaan`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_ibfk_8` FOREIGN KEY (`pendapatan_tindakan`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_ibfk_9` FOREIGN KEY (`persediaan_bhp`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `matrik_akun_jns_perawatan_inap` */
 
@@ -4296,20 +4264,20 @@ CREATE TABLE `matrik_akun_jns_perawatan_inap` (
   `utang_jasa_sarana` varchar(15) DEFAULT NULL,
   `beban_menejemen` varchar(15) DEFAULT NULL,
   `utang_menejemen` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`kd_jenis_prw`),
-  KEY `beban_jasa_dokter` (`beban_jasa_dokter`),
-  KEY `beban_jasa_paramedis` (`beban_jasa_paramedis`),
-  KEY `beban_jasa_sarana` (`beban_jasa_sarana`),
-  KEY `beban_kso` (`beban_kso`),
-  KEY `beban_menejemen` (`beban_menejemen`),
-  KEY `hpp_persediaan` (`hpp_persediaan`),
-  KEY `pendapatan_tindakan` (`pendapatan_tindakan`),
-  KEY `persediaan_bhp` (`persediaan_bhp`),
-  KEY `utang_jasa_dokter` (`utang_jasa_dokter`),
-  KEY `utang_jasa_paramedis` (`utang_jasa_paramedis`),
-  KEY `utang_jasa_sarana` (`utang_jasa_sarana`),
-  KEY `utang_kso` (`utang_kso`),
-  KEY `utang_menejemen` (`utang_menejemen`),
+  PRIMARY KEY (`kd_jenis_prw`) USING BTREE,
+  KEY `beban_jasa_dokter` (`beban_jasa_dokter`) USING BTREE,
+  KEY `beban_jasa_paramedis` (`beban_jasa_paramedis`) USING BTREE,
+  KEY `beban_jasa_sarana` (`beban_jasa_sarana`) USING BTREE,
+  KEY `beban_kso` (`beban_kso`) USING BTREE,
+  KEY `beban_menejemen` (`beban_menejemen`) USING BTREE,
+  KEY `hpp_persediaan` (`hpp_persediaan`) USING BTREE,
+  KEY `pendapatan_tindakan` (`pendapatan_tindakan`) USING BTREE,
+  KEY `persediaan_bhp` (`persediaan_bhp`) USING BTREE,
+  KEY `utang_jasa_dokter` (`utang_jasa_dokter`) USING BTREE,
+  KEY `utang_jasa_paramedis` (`utang_jasa_paramedis`) USING BTREE,
+  KEY `utang_jasa_sarana` (`utang_jasa_sarana`) USING BTREE,
+  KEY `utang_kso` (`utang_kso`) USING BTREE,
+  KEY `utang_menejemen` (`utang_menejemen`) USING BTREE,
   CONSTRAINT `matrik_akun_jns_perawatan_inap_ibfk_1` FOREIGN KEY (`kd_jenis_prw`) REFERENCES `jns_perawatan_inap` (`kd_jenis_prw`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_inap_ibfk_10` FOREIGN KEY (`beban_kso`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_inap_ibfk_11` FOREIGN KEY (`beban_menejemen`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -4324,7 +4292,7 @@ CREATE TABLE `matrik_akun_jns_perawatan_inap` (
   CONSTRAINT `matrik_akun_jns_perawatan_inap_ibfk_7` FOREIGN KEY (`beban_jasa_dokter`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_inap_ibfk_8` FOREIGN KEY (`beban_jasa_paramedis`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `matrik_akun_jns_perawatan_inap_ibfk_9` FOREIGN KEY (`beban_jasa_sarana`) REFERENCES `rekening` (`kd_rek`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `metode_racik` */
 
@@ -4345,7 +4313,153 @@ CREATE TABLE `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Table structure for table `mlite_antrian_loket` */
+
+DROP TABLE IF EXISTS `mlite_antrian_loket`;
+
+CREATE TABLE `mlite_antrian_loket` (
+  `kd` int(50) NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) NOT NULL,
+  `noantrian` varchar(50) NOT NULL,
+  `postdate` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL DEFAULT '00:00:00',
+  PRIMARY KEY (`kd`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_antrian_referensi` */
+
+DROP TABLE IF EXISTS `mlite_antrian_referensi`;
+
+CREATE TABLE `mlite_antrian_referensi` (
+  `tanggal_periksa` date NOT NULL,
+  `nomor_kartu` varchar(50) NOT NULL,
+  `nomor_referensi` varchar(50) NOT NULL,
+  PRIMARY KEY (`nomor_referensi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_billing` */
+
+DROP TABLE IF EXISTS `mlite_billing`;
+
+CREATE TABLE `mlite_billing` (
+  `id_billing` int(11) NOT NULL AUTO_INCREMENT,
+  `kd_billing` varchar(100) NOT NULL,
+  `no_rawat` varchar(17) NOT NULL,
+  `jumlah_total` int(100) NOT NULL,
+  `potongan` int(100) NOT NULL,
+  `jumlah_harus_bayar` int(100) NOT NULL,
+  `jumlah_bayar` int(100) NOT NULL,
+  `tgl_billing` date NOT NULL,
+  `jam_billing` time NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `keterangan` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_billing`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_geolocation_presensi` */
+
+DROP TABLE IF EXISTS `mlite_geolocation_presensi`;
+
+CREATE TABLE `mlite_geolocation_presensi` (
+  `id` int(11) NOT NULL,
+  `tanggal` date DEFAULT NULL,
+  `latitude` varchar(200) NOT NULL,
+  `longitude` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `mlite_geolocation_presensi_ibfk_1` FOREIGN KEY (`id`) REFERENCES `pegawai` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_login_attempts` */
+
+DROP TABLE IF EXISTS `mlite_login_attempts`;
+
+CREATE TABLE `mlite_login_attempts` (
+  `ip` text DEFAULT NULL,
+  `attempts` int(100) NOT NULL,
+  `expires` int(100) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_modules` */
+
+DROP TABLE IF EXISTS `mlite_modules`;
+
+CREATE TABLE `mlite_modules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dir` text DEFAULT NULL,
+  `sequence` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_pasien_galleries` */
+
+DROP TABLE IF EXISTS `mlite_pasien_galleries`;
+
+CREATE TABLE `mlite_pasien_galleries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `slug` text NOT NULL,
+  `img_per_page` varchar(50) NOT NULL DEFAULT '0',
+  `sort` varchar(50) NOT NULL DEFAULT 'DESC',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_pasien_galleries_items` */
+
+DROP TABLE IF EXISTS `mlite_pasien_galleries_items`;
+
+CREATE TABLE `mlite_pasien_galleries_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gallery` varchar(50) NOT NULL,
+  `src` text NOT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_remember_me` */
+
+DROP TABLE IF EXISTS `mlite_remember_me`;
+
+CREATE TABLE `mlite_remember_me` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `token` text DEFAULT NULL,
+  `user_id` int(10) NOT NULL,
+  `expiry` int(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mlite_remember_me_ibfk_1` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_settings` */
+
+DROP TABLE IF EXISTS `mlite_settings`;
+
+CREATE TABLE `mlite_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `module` text DEFAULT NULL,
+  `field` text DEFAULT NULL,
+  `value` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=233 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `mlite_users` */
+
+DROP TABLE IF EXISTS `mlite_users`;
+
+CREATE TABLE `mlite_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` text DEFAULT NULL,
+  `fullname` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `password` text DEFAULT NULL,
+  `avatar` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `role` varchar(100) NOT NULL DEFAULT 'user',
+  `cap` varchar(100) DEFAULT '',
+  `access` varchar(500) NOT NULL DEFAULT 'dashboard',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `monitoring_asuhan_gizi` */
 
@@ -5292,7 +5406,7 @@ CREATE TABLE `pegawai` (
   CONSTRAINT `pegawai_ibfk_7` FOREIGN KEY (`indexins`) REFERENCES `departemen` (`dep_id`) ON UPDATE CASCADE,
   CONSTRAINT `pegawai_ibfk_8` FOREIGN KEY (`bpd`) REFERENCES `bank` (`namabank`) ON UPDATE CASCADE,
   CONSTRAINT `pegawai_ibfk_9` FOREIGN KEY (`kode_emergency`) REFERENCES `emergency_index` (`kode_emergency`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1096 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1118 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `pemasukan_lain` */
 
@@ -5692,8 +5806,8 @@ CREATE TABLE `pencapaian_kinerja` (
   `kode_pencapaian` varchar(3) NOT NULL,
   `nama_pencapaian` varchar(200) DEFAULT NULL,
   `indek` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`kode_pencapaian`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`kode_pencapaian`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `pencapaian_kinerja_pegawai` */
 
@@ -5705,11 +5819,11 @@ CREATE TABLE `pencapaian_kinerja_pegawai` (
   `tahun` year(4) NOT NULL,
   `bulan` tinyint(4) NOT NULL,
   `keterangan` varchar(150) DEFAULT NULL,
-  PRIMARY KEY (`id`,`kode_pencapaian`,`tahun`,`bulan`),
-  KEY `kode_pencapaian` (`kode_pencapaian`),
+  PRIMARY KEY (`id`,`kode_pencapaian`,`tahun`,`bulan`) USING BTREE,
+  KEY `kode_pencapaian` (`kode_pencapaian`) USING BTREE,
   CONSTRAINT `pencapaian_kinerja_pegawai_ibfk_1` FOREIGN KEY (`id`) REFERENCES `pegawai` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `pencapaian_kinerja_pegawai_ibfk_2` FOREIGN KEY (`kode_pencapaian`) REFERENCES `pencapaian_kinerja` (`kode_pencapaian`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `pendidikan` */
 
@@ -5785,8 +5899,8 @@ CREATE TABLE `pengajuan_cuti` (
   `nik_pj` varchar(20) NOT NULL,
   `status` enum('Proses Pengajuan','Disetujui','Ditolak') NOT NULL,
   PRIMARY KEY (`no_pengajuan`),
-  KEY `nik` (`nik`) USING BTREE,
-  KEY `nik_pj` (`nik_pj`) USING BTREE,
+  KEY `nik` (`nik`),
+  KEY `nik_pj` (`nik_pj`),
   CONSTRAINT `pengajuan_cuti_ibfk_1` FOREIGN KEY (`nik`) REFERENCES `pegawai` (`nik`) ON UPDATE CASCADE,
   CONSTRAINT `pengajuan_cuti_ibfk_2` FOREIGN KEY (`nik_pj`) REFERENCES `pegawai` (`nik`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -7082,7 +7196,7 @@ CREATE TABLE `propinsi` (
   `nm_prop` varchar(30) NOT NULL,
   PRIMARY KEY (`kd_prop`),
   UNIQUE KEY `nm_prop` (`nm_prop`)
-) ENGINE=InnoDB AUTO_INCREMENT=326 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1563 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `prosedur_pasien` */
 
@@ -7489,8 +7603,8 @@ CREATE TABLE `resiko_kerja` (
   `kode_resiko` varchar(3) NOT NULL,
   `nama_resiko` varchar(200) DEFAULT NULL,
   `indek` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`kode_resiko`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`kode_resiko`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `resume_pasien` */
 
@@ -7523,11 +7637,11 @@ CREATE TABLE `resume_pasien` (
   `kd_prosedur_sekunder3` varchar(8) NOT NULL,
   `kondisi_pulang` enum('Hidup','Meninggal') NOT NULL,
   `obat_pulang` text NOT NULL,
-  PRIMARY KEY (`no_rawat`),
-  KEY `kd_dokter` (`kd_dokter`),
+  PRIMARY KEY (`no_rawat`) USING BTREE,
+  KEY `kd_dokter` (`kd_dokter`) USING BTREE,
   CONSTRAINT `resume_pasien_ibfk_1` FOREIGN KEY (`no_rawat`) REFERENCES `reg_periksa` (`no_rawat`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `resume_pasien_ibfk_2` FOREIGN KEY (`kd_dokter`) REFERENCES `dokter` (`kd_dokter`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Table structure for table `retensi_pasien` */
 
@@ -8022,23 +8136,23 @@ CREATE TABLE `set_akun` (
   KEY `Bayar_Pemesanan_Non_Medis` (`Bayar_Pemesanan_Non_Medis`),
   KEY `Hibah_Obat` (`Hibah_Obat`),
   KEY `Kontra_Hibah_Obat` (`Kontra_Hibah_Obat`),
-  KEY `Penerimaan_Toko` (`Penerimaan_Toko`),
-  KEY `Kontra_Penerimaan_Toko` (`Kontra_Penerimaan_Toko`),
-  KEY `Pengadaan_Toko` (`Pengadaan_Toko`),
   KEY `Bayar_Pemesanan_Toko` (`Bayar_Pemesanan_Toko`),
-  KEY `Penjualan_Toko` (`Penjualan_Toko`),
   KEY `HPP_Barang_Toko` (`HPP_Barang_Toko`),
+  KEY `Kontra_Penerimaan_Toko` (`Kontra_Penerimaan_Toko`),
+  KEY `Kontra_Piutang_Toko` (`Kontra_Piutang_Toko`),
+  KEY `Kontra_Retur_Beli_Non_Medis` (`Kontra_Retur_Beli_Non_Medis`),
+  KEY `Kontra_Retur_Beli_Toko` (`Kontra_Retur_Beli_Toko`),
+  KEY `Penerimaan_Toko` (`Penerimaan_Toko`),
+  KEY `Pengadaan_Toko` (`Pengadaan_Toko`),
+  KEY `Penjualan_Toko` (`Penjualan_Toko`),
   KEY `Persediaan_Barang_Toko` (`Persediaan_Barang_Toko`),
   KEY `Piutang_Toko` (`Piutang_Toko`),
-  KEY `Kontra_Piutang_Toko` (`Kontra_Piutang_Toko`),
-  KEY `Retur_Beli_Toko` (`Retur_Beli_Toko`),
-  KEY `Kontra_Retur_Beli_Toko` (`Kontra_Retur_Beli_Toko`),
   KEY `Retur_Beli_Non_Medis` (`Retur_Beli_Non_Medis`),
-  KEY `Kontra_Retur_Beli_Non_Medis` (`Kontra_Retur_Beli_Non_Medis`),
-  KEY `Retur_Jual_Toko` (`Retur_Jual_Toko`),
+  KEY `Retur_Beli_Toko` (`Retur_Beli_Toko`),
   KEY `Kontra_Retur_Jual_Toko` (`Kontra_Retur_Jual_Toko`),
-  KEY `Retur_Piutang_Toko` (`Retur_Piutang_Toko`),
   KEY `Kontra_Retur_Piutang_Toko` (`Kontra_Retur_Piutang_Toko`),
+  KEY `Retur_Jual_Toko` (`Retur_Jual_Toko`),
+  KEY `Retur_Piutang_Toko` (`Retur_Piutang_Toko`),
   CONSTRAINT `set_akun_ibfk_1` FOREIGN KEY (`Pengadaan_Obat`) REFERENCES `rekening` (`kd_rek`) ON UPDATE CASCADE,
   CONSTRAINT `set_akun_ibfk_10` FOREIGN KEY (`Retur_Dari_pembeli`) REFERENCES `rekening` (`kd_rek`) ON UPDATE CASCADE,
   CONSTRAINT `set_akun_ibfk_11` FOREIGN KEY (`Kontra_Retur_Dari_Pembeli`) REFERENCES `rekening` (`kd_rek`) ON UPDATE CASCADE,
@@ -10015,10 +10129,10 @@ CREATE TABLE `template_laboratorium` (
   `id_template` int(11) NOT NULL AUTO_INCREMENT,
   `Pemeriksaan` varchar(200) NOT NULL,
   `satuan` varchar(20) NOT NULL,
-  `nilai_rujukan_ld` varchar(30) NOT NULL,
-  `nilai_rujukan_la` varchar(30) NOT NULL,
-  `nilai_rujukan_pd` varchar(30) NOT NULL,
-  `nilai_rujukan_pa` varchar(30) NOT NULL,
+  `nilai_rujukan_ld` varchar(60) NOT NULL,
+  `nilai_rujukan_la` varchar(60) NOT NULL,
+  `nilai_rujukan_pd` varchar(60) NOT NULL,
+  `nilai_rujukan_pa` varchar(60) NOT NULL,
   `bagian_rs` double NOT NULL,
   `bhp` double NOT NULL,
   `bagian_perujuk` double NOT NULL,
@@ -10046,7 +10160,7 @@ CREATE TABLE `template_laboratorium` (
   KEY `biaya_item` (`biaya_item`),
   KEY `urut` (`urut`),
   CONSTRAINT `template_laboratorium_ibfk_1` FOREIGN KEY (`kd_jenis_prw`) REFERENCES `jns_perawatan_lab` (`kd_jenis_prw`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3260 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1335 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `template_utd` */
 
@@ -10115,7 +10229,7 @@ CREATE TABLE `temporary` (
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary2` */
 
@@ -10224,7 +10338,7 @@ CREATE TABLE `temporary2` (
   `temp99` varchar(100) NOT NULL,
   `temp100` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_bayar_ralan` */
 
@@ -10250,7 +10364,7 @@ CREATE TABLE `temporary_bayar_ralan` (
   `temp16` varchar(100) NOT NULL,
   `temp17` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=9712 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=93746 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_bayar_ranap` */
 
@@ -10276,7 +10390,7 @@ CREATE TABLE `temporary_bayar_ranap` (
   `temp16` varchar(100) NOT NULL,
   `temp17` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=137 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_booking_registrasi` */
 
@@ -10368,7 +10482,7 @@ CREATE TABLE `temporary_gizi` (
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_grafik` */
 
@@ -10414,7 +10528,7 @@ CREATE TABLE `temporary_grafik` (
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_lab` */
 
@@ -10460,7 +10574,7 @@ CREATE TABLE `temporary_lab` (
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_lama_pelayanan_radiologi` */
 
@@ -10505,8 +10619,8 @@ CREATE TABLE `temporary_lama_pelayanan_radiologi` (
   `temp35` varchar(100) NOT NULL,
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
-  PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`no`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_payment` */
 
@@ -10552,7 +10666,7 @@ CREATE TABLE `temporary_payment` (
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_permintaan_lab` */
 
@@ -10597,8 +10711,8 @@ CREATE TABLE `temporary_permintaan_lab` (
   `temp35` varchar(100) NOT NULL,
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
-  PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`no`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_permintaan_radiologi` */
 
@@ -10643,8 +10757,8 @@ CREATE TABLE `temporary_permintaan_radiologi` (
   `temp35` varchar(100) NOT NULL,
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
-  PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`no`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_presensi` */
 
@@ -10752,8 +10866,8 @@ CREATE TABLE `temporary_resep` (
   `temp35` varchar(100) NOT NULL,
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
-  PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`no`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=158 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_resume` */
 
@@ -10798,7 +10912,7 @@ CREATE TABLE `temporary_resume` (
   `temp35` varchar(100) NOT NULL,
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
-  PRIMARY KEY (`no`)
+  PRIMARY KEY (`no`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_sensus_harian` */
@@ -10844,8 +10958,8 @@ CREATE TABLE `temporary_sensus_harian` (
   `temp35` varchar(100) NOT NULL,
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
-  PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`no`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temporary_surveilens_penyakit` */
 
@@ -10916,7 +11030,7 @@ CREATE TABLE `temporary_toko` (
   `temp36` varchar(100) NOT NULL,
   `temp37` varchar(100) NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `temppanggilnorawat` */
 
@@ -12235,8 +12349,9 @@ CREATE TABLE `user` (
   `laporan_bulanan_klasifikasi` enum('true','false') DEFAULT NULL,
   `sisa_stok2` enum('true','false') DEFAULT NULL,
   `pembayaran_ralan_rsud` enum('true','false') DEFAULT NULL,
-  `pembayaran_ralan_rsud2` enum('true','flase') DEFAULT NULL,
+  `pembayaran_ralan_rsud2` enum('true','false') DEFAULT NULL,
   `pembayaran_ralan_rsud3` enum('true','false') DEFAULT NULL,
+  `penyiapan_rm` enum('true','false') DEFAULT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -12246,6 +12361,7 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `role` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -12253,9 +12369,9 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`,`role`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Table structure for table `utd_cekal_darah` */
 

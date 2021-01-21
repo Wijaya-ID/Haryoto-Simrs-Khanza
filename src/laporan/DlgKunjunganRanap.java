@@ -52,7 +52,7 @@ public final class DlgKunjunganRanap extends javax.swing.JDialog {
     private PreparedStatement ps,ps2;
     private ResultSet rs,rs2;
     private int i=0,lama=0,baru=0,laki=0,per=0;  
-    private String setbaru="",setlama="",umurlk="",umurpr="",kddiagnosa="",diagnosa="",dokterdpjp="",status="";
+    private String setbaru="",setlama="",umurlk="",umurpr="",kddiagnosa="",diagnosa="",kddiagnosat="",diagnosat="",dokterdpjp="",status="",kdicd9="",icd9="";
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
     private DlgKabupaten kabupaten=new DlgKabupaten(null,false);
     private DlgPenanggungJawab penjab=new DlgPenanggungJawab(null,false);
@@ -67,7 +67,7 @@ public final class DlgKunjunganRanap extends javax.swing.JDialog {
         initComponents();
         this.setLocation(8,1);
         setSize(885,674);
-        tabMode=new DefaultTableModel(null,new String[]{"No.","Lama","Baru","Nama Pasien","L","P","Alamat","Kode","Diagnosa","Ruang","Stts.Pulang","Tgl.Masuk","DPJP","Jenis Bayar","Asal Rujukan","Kelas"}){
+        tabMode=new DefaultTableModel(null,new String[]{"No.","Lama","Baru","Nama Pasien","L","P","Alamat","Tgl.Masuk","Ruang","Kelas","Kode","Diagnosa Awal","Kode","Diagnosa Akhir","Kode","Diagnosa Tambahan","Kode","Tindakan Prosedur","DPJP","Jenis Bayar","Asal Rujukan","Stts.Pulang"}){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
         tbBangsal.setModel(tabMode);
@@ -75,7 +75,7 @@ public final class DlgKunjunganRanap extends javax.swing.JDialog {
         tbBangsal.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbBangsal.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 16; i++) {
+        for (i = 0; i < 22; i++) {
             TableColumn column = tbBangsal.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(35);
@@ -92,22 +92,34 @@ public final class DlgKunjunganRanap extends javax.swing.JDialog {
             }else if(i==6){
                 column.setPreferredWidth(250);
             }else if(i==7){
-                column.setPreferredWidth(40);
+                column.setPreferredWidth(70);
             }else if(i==8){
-                column.setPreferredWidth(200);
+                column.setPreferredWidth(80);
             }else if(i==9){
-                column.setPreferredWidth(130);
+                column.setPreferredWidth(70);
             }else if(i==10){
-                column.setPreferredWidth(85);
-            }else if(i==11){
-                column.setPreferredWidth(75);
-            }else if(i==12){
-                column.setPreferredWidth(240);
-            }else if(i==13){
+                column.setPreferredWidth(40);
+            }else if(i==10){
                 column.setPreferredWidth(100);
+            }else if(i==12){
+                column.setPreferredWidth(40);
+            }else if(i==13){
+                column.setPreferredWidth(150);
             }else if(i==14){
-                column.setPreferredWidth(220);
+                column.setPreferredWidth(40);
             }else if(i==15){
+                column.setPreferredWidth(150);
+            }else if(i==16){
+                column.setPreferredWidth(40);
+            }else if(i==17){
+                column.setPreferredWidth(150);
+            }else if(i==18){
+                column.setPreferredWidth(150);
+            }else if(i==19){
+                column.setPreferredWidth(60);
+            }else if(i==20){
+                column.setPreferredWidth(120);
+            }else if(i==21){
                 column.setPreferredWidth(80);
             }
         }
@@ -1286,7 +1298,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             Valid.tabelKosong(tabMode);   
             ps=koneksi.prepareStatement(
                     "select reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.alamat,pasien.jk,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur) as umur,pasien.tgl_daftar,reg_periksa.stts_daftar,"+
-                    "kamar_inap.kd_kamar,bangsal.nm_bangsal,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab)as almt_pj,kamar_inap.stts_pulang,kamar_inap.tgl_masuk,dokter.nm_dokter,penjab.png_jawab,rujuk_masuk.perujuk,kamar.kelas "+
+                    "kamar_inap.kd_kamar,bangsal.nm_bangsal,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab)as almt_pj,kamar_inap.stts_pulang,kamar_inap.tgl_masuk,dokter.nm_dokter,penjab.png_jawab,rujuk_masuk.perujuk,kamar.kelas,kamar_inap.diagnosa_awal "+
                     "from reg_periksa inner join pasien inner join kamar_inap inner join kamar inner join bangsal inner join dokter inner join penjab inner join rujuk_masuk " +
                     "inner join kabupaten inner join kecamatan inner join kelurahan on reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat "+
                     "and reg_periksa.kd_pj=penjab.kd_pj and pasien.kd_kab=kabupaten.kd_kab and kamar_inap.kd_kamar=kamar.kd_kamar and kamar.kd_bangsal=bangsal.kd_bangsal "+
@@ -1411,9 +1423,56 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                                 ps2.close();
                             }
                         }
+                        diagnosat="";
+                        kddiagnosat="";
+                        ps2=koneksi.prepareStatement(
+                                "select penyakit.kd_penyakit,penyakit.nm_penyakit from penyakit inner join diagnosa_pasien " +
+                                "on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit " +
+                                "where diagnosa_pasien.no_rawat=? and prioritas ='2'");
+                        try {                                    
+                            ps2.setString(1,rs.getString("no_rawat"));
+                            rs2=ps2.executeQuery();
+                            if(rs2.next()){
+                                kddiagnosat=rs2.getString(1);
+                                diagnosat=rs2.getString(2);
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        } finally{
+                            if(rs2!=null){
+                                rs2.close();
+                            }
+                            if(ps2!=null){
+                                ps2.close();
+                            }
+                        }
+                        
+                        kdicd9="";
+                        icd9="";
+                        ps2=koneksi.prepareStatement(
+                                "select icd9.kode,icd9.deskripsi_pendek from icd9 inner join prosedur_pasien " +
+                                "on prosedur_pasien.kode=icd9.kode " +
+                                "where prosedur_pasien.no_rawat=? order by prioritas asc limit 1");
+                        try {                                    
+                            ps2.setString(1,rs.getString("no_rawat"));
+                            rs2=ps2.executeQuery();
+                            if(rs2.next()){
+                                kdicd9=rs2.getString(1);
+                                icd9=rs2.getString(2);
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        } finally{
+                            if(rs2!=null){
+                                rs2.close();
+                            }
+                            if(ps2!=null){
+                                ps2.close();
+                            }
+                        }
                         
                         tabMode.addRow(new Object[]{
-                            i,setlama,setbaru,rs.getString("nm_pasien"),umurlk,umurpr,rs.getString("almt_pj"),kddiagnosa,diagnosa,rs.getString("kd_kamar"),rs.getString("stts_pulang"),rs.getString("tgl_masuk"),dokterdpjp,rs.getString("png_jawab"),rs.getString("perujuk"),rs.getString("kelas")
+                            i,setlama,setbaru,rs.getString("nm_pasien"),umurlk,umurpr,rs.getString("almt_pj"),rs.getString("tgl_masuk"),rs.getString("kd_kamar"),rs.getString("kelas")," ",rs.getString("diagnosa_awal"),kddiagnosa,diagnosa,kddiagnosat,diagnosat,kdicd9,icd9,dokterdpjp,rs.getString("png_jawab"),rs.getString("perujuk"),rs.getString("stts_pulang")
                         });                
                         i++;
                     }

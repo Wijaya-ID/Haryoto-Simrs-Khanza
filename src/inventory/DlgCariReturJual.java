@@ -222,6 +222,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         ppHapus = new javax.swing.JMenuItem();
+        ppCetakUlang = new javax.swing.JMenuItem();
         internalFrame1 = new widget.InternalFrame();
         scrollPane1 = new widget.ScrollPane();
         tbRetur = new widget.Table();
@@ -262,7 +263,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
 
         ppHapus.setBackground(new java.awt.Color(255, 255, 254));
         ppHapus.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppHapus.setForeground(new java.awt.Color(50,50,50));
+        ppHapus.setForeground(new java.awt.Color(50, 50, 50));
         ppHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         ppHapus.setText("Hapus Retur");
         ppHapus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -276,6 +277,22 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         });
         jPopupMenu1.add(ppHapus);
 
+        ppCetakUlang.setBackground(new java.awt.Color(255, 255, 254));
+        ppCetakUlang.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        ppCetakUlang.setForeground(new java.awt.Color(50, 50, 50));
+        ppCetakUlang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        ppCetakUlang.setText("Cetak Ulang Retur");
+        ppCetakUlang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppCetakUlang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppCetakUlang.setName("ppCetakUlang"); // NOI18N
+        ppCetakUlang.setPreferredSize(new java.awt.Dimension(150, 25));
+        ppCetakUlang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppCetakUlangActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(ppCetakUlang);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
@@ -285,7 +302,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Cari Retur Obat, Alkes & BHP Medis Dari Pembeli/Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Cari Retur Obat, Alkes & BHP Medis Dari Pembeli/Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -307,6 +324,11 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         tbRetur.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbRetur.setComponentPopupMenu(jPopupMenu1);
         tbRetur.setName("tbRetur"); // NOI18N
+        tbRetur.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbReturMouseClicked(evt);
+            }
+        });
         scrollPane1.setViewportView(tbRetur);
 
         internalFrame1.add(scrollPane1, java.awt.BorderLayout.CENTER);
@@ -359,7 +381,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
         LTotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LTotal.setText("0");
         LTotal.setName("LTotal"); // NOI18N
-        LTotal.setPreferredSize(new java.awt.Dimension(120, 30));
+        LTotal.setPreferredSize(new java.awt.Dimension(100, 30));
         panelisi1.add(LTotal);
 
         BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
@@ -674,6 +696,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
     private void BtnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllActionPerformed
         TCari.setText("");
         NoNota.setText("");
+        NoRetur.setText("");
         kdbar.setText("");
         nmbar.setText("");
         kdsat.setText("");
@@ -690,6 +713,7 @@ public class DlgCariReturJual extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnAllKeyPressed
 
     private void BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrintActionPerformed
+        NoRetur.setText("");
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         BtnCariActionPerformed(evt);
         if(tabMode.getRowCount()==0){
@@ -889,6 +913,56 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         tampil();
     }//GEN-LAST:event_formWindowOpened
 
+    private void tbReturMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbReturMouseClicked
+             
+        if(tabMode.getRowCount()!=0){
+            try {
+                getData();
+            } catch (java.lang.NullPointerException e) {
+            }
+        }
+    }//GEN-LAST:event_tbReturMouseClicked
+
+    private void ppCetakUlangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppCetakUlangActionPerformed
+           this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BtnCariActionPerformed(evt);
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
+            TCari.requestFocus();
+        }else if(tabMode.getRowCount()!=0){
+            
+            Sequel.queryu("truncate table temporary");
+            int row=tabMode.getRowCount();
+            for(int i=0;i<row;i++){  
+                Sequel.menyimpan("temporary","'0','"+
+                                tabMode.getValueAt(i,0).toString()+"','"+
+                                tabMode.getValueAt(i,1).toString()+"','"+
+                                tabMode.getValueAt(i,2).toString()+"','"+
+                                tabMode.getValueAt(i,3).toString()+"','"+
+                                tabMode.getValueAt(i,4).toString()+"','"+
+                                tabMode.getValueAt(i,5).toString()+"','"+
+                                tabMode.getValueAt(i,6).toString()+"','"+
+                                tabMode.getValueAt(i,7).toString()+"','"+
+                                tabMode.getValueAt(i,8).toString()+"','"+
+                                tabMode.getValueAt(i,9).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Retur Jual"); 
+            }
+            Sequel.menyimpan("temporary","'0','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Retur Jual"); 
+            Sequel.menyimpan("temporary","'0','Jml.Total :','','','','','','','',' ','"+LTotal.getText()+"','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Transaksi Retur Jual"); 
+            
+            Map<String, Object> param = new HashMap<>();  
+                param.put("namars",akses.getnamars());
+                param.put("alamatrs",akses.getalamatrs());
+                param.put("kotars",akses.getkabupatenrs());
+                param.put("propinsirs",akses.getpropinsirs());
+                param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());   
+                param.put("logo",Sequel.cariGambar("select logo from setting"));
+            Valid.MyReport("rptReturJual2.jasper","report","::[ Bukti Retur Jual ]::",param);
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+        BtnAllActionPerformed(null);
+    }//GEN-LAST:event_ppCetakUlangActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -940,6 +1014,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private widget.panelisi panelisi1;
     private widget.panelisi panelisi4;
     private widget.panelisi panelisijual;
+    private javax.swing.JMenuItem ppCetakUlang;
     private javax.swing.JMenuItem ppHapus;
     private widget.ScrollPane scrollPane1;
     private widget.Table tbRetur;
@@ -1062,6 +1137,12 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }else{
             ppHapus.setEnabled(false);
         }  
+    }
+    
+    private void getData() {
+        if(tbRetur.getSelectedRow()!= -1){
+            NoRetur.setText(tbRetur.getValueAt(tbRetur.getSelectedRow(),0).toString()); 
+        }
     }
 
  

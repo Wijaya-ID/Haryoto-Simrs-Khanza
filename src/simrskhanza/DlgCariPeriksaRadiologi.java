@@ -299,12 +299,23 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
         ppBerkasDigital = new javax.swing.JMenuItem();
         WindowHasil = new javax.swing.JDialog();
         internalFrame6 = new widget.InternalFrame();
+        label4 = new widget.Label();
+        label1 = new widget.Label();
+        label2 = new widget.Label();
+        label3 = new widget.Label();
+        scrollPane2 = new widget.ScrollPane();
+        HasilPeriksa = new widget.TextArea();
+        scrollPane3 = new widget.ScrollPane();
+        HasilKlinis = new widget.TextArea();
+        scrollPane4 = new widget.ScrollPane();
+        HasilTsYth = new widget.TextArea();
+        scrollPane5 = new widget.ScrollPane();
+        HasilKesan = new widget.TextArea();
+        jPanel1 = new javax.swing.JPanel();
         panelGlass6 = new widget.panelisi();
         BtnSimpan = new widget.Button();
         BtnPrint1 = new widget.Button();
         BtnCloseIn5 = new widget.Button();
-        Scroll3 = new widget.ScrollPane();
-        HasilPeriksa = new widget.TextArea();
         Penjab = new widget.TextBox();
         Jk = new widget.TextBox();
         Umur = new widget.TextBox();
@@ -437,15 +448,118 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
         WindowHasil.setName("WindowHasil"); // NOI18N
         WindowHasil.setUndecorated(true);
         WindowHasil.setResizable(false);
-        WindowHasil.getContentPane().setLayout(new java.awt.BorderLayout(1, 1));
 
         internalFrame6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Hasil Pemeriksaan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame6.setName("internalFrame6"); // NOI18N
-        internalFrame6.setLayout(new java.awt.BorderLayout(1, 1));
+
+        label4.setText("Hasil :");
+        label4.setToolTipText("");
+        label4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label4.setName("label4"); // NOI18N
+
+        label1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label1.setText("     Klinis :");
+        label1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label1.setName("label1"); // NOI18N
+
+        label2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label2.setText("     TS. Yth :");
+        label2.setToolTipText("");
+        label2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label2.setName("label2"); // NOI18N
+
+        label3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label3.setText("     Kesan :");
+        label3.setToolTipText("");
+        label3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        label3.setName("label3"); // NOI18N
+
+        scrollPane2.setName("scrollPane2"); // NOI18N
+
+        HasilPeriksa.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        HasilPeriksa.setColumns(20);
+        HasilPeriksa.setRows(5);
+        HasilPeriksa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        HasilPeriksa.setName("HasilPeriksa"); // NOI18N
+        scrollPane2.setViewportView(HasilPeriksa);
+
+        scrollPane3.setName("scrollPane3"); // NOI18N
+
+        HasilKlinis.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        HasilKlinis.setColumns(20);
+        HasilKlinis.setRows(5);
+        HasilKlinis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        HasilKlinis.setName("HasilKlinis"); // NOI18N
+        scrollPane3.setViewportView(HasilKlinis);
+
+        scrollPane4.setName("scrollPane4"); // NOI18N
+
+        HasilTsYth.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        HasilTsYth.setColumns(20);
+        HasilTsYth.setRows(5);
+        HasilTsYth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        HasilTsYth.setName("HasilTsYth"); // NOI18N
+        scrollPane4.setViewportView(HasilTsYth);
+
+        scrollPane5.setName("scrollPane5"); // NOI18N
+
+        HasilKesan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        HasilKesan.setColumns(20);
+        HasilKesan.setRows(5);
+        HasilKesan.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        HasilKesan.setName("HasilKesan"); // NOI18N
+        scrollPane5.setViewportView(HasilKesan);
+
+        javax.swing.GroupLayout internalFrame6Layout = new javax.swing.GroupLayout(internalFrame6);
+        internalFrame6.setLayout(internalFrame6Layout);
+        internalFrame6Layout.setHorizontalGroup(
+            internalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(internalFrame6Layout.createSequentialGroup()
+                .addGroup(internalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 2003, Short.MAX_VALUE)
+                    .addGroup(internalFrame6Layout.createSequentialGroup()
+                        .addGroup(internalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(scrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(internalFrame6Layout.createSequentialGroup()
+                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        internalFrame6Layout.setVerticalGroup(
+            internalFrame6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(internalFrame6Layout.createSequentialGroup()
+                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        WindowHasil.getContentPane().add(internalFrame6, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(55, 55));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         panelGlass6.setName("panelGlass6"); // NOI18N
         panelGlass6.setPreferredSize(new java.awt.Dimension(55, 55));
-        panelGlass6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
+        panelGlass6.setLayout(new javax.swing.BoxLayout(panelGlass6, javax.swing.BoxLayout.LINE_AXIS));
 
         BtnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
         BtnSimpan.setMnemonic('U');
@@ -496,19 +610,10 @@ public class DlgCariPeriksaRadiologi extends javax.swing.JDialog {
         });
         panelGlass6.add(BtnCloseIn5);
 
-        internalFrame6.add(panelGlass6, java.awt.BorderLayout.PAGE_END);
+        jPanel1.add(panelGlass6, java.awt.BorderLayout.PAGE_START);
 
-        Scroll3.setName("Scroll3"); // NOI18N
-        Scroll3.setOpaque(true);
-
-        HasilPeriksa.setColumns(20);
-        HasilPeriksa.setRows(5);
-        HasilPeriksa.setName("HasilPeriksa"); // NOI18N
-        Scroll3.setViewportView(HasilPeriksa);
-
-        internalFrame6.add(Scroll3, java.awt.BorderLayout.CENTER);
-
-        WindowHasil.getContentPane().add(internalFrame6, java.awt.BorderLayout.CENTER);
+        WindowHasil.getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        jPanel1.getAccessibleContext().setAccessibleName("");
 
         Penjab.setEditable(false);
         Penjab.setFocusTraversalPolicyProvider(true);
@@ -1323,8 +1428,11 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             }else{
                 try {
                     HasilPeriksa.setText("");
+                    HasilKlinis.setText("");
+                    HasilTsYth.setText("");
+                    HasilKesan.setText("");
                     ps5=koneksi.prepareStatement(
-                        "select hasil from hasil_radiologi where hasil_radiologi.no_rawat=? and hasil_radiologi.tgl_periksa=? and hasil_radiologi.jam=?");  
+                        "select hasil, klinis, tsyth, kesan from hasil_radiologi where hasil_radiologi.no_rawat=? and hasil_radiologi.tgl_periksa=? and hasil_radiologi.jam=?");  
                     try {
                         ps5.setString(1,tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString());
                         ps5.setString(2,tbDokter.getValueAt(tbDokter.getSelectedRow(),3).toString());
@@ -1332,6 +1440,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         rs5=ps5.executeQuery();
                         while(rs5.next()){      
                             HasilPeriksa.setText(rs5.getString(1));
+                            HasilKlinis.setText(rs5.getString(2));
+                            HasilTsYth.setText(rs5.getString(3));
+                            HasilKesan.setText(rs5.getString(4));
                         } 
                     } catch (Exception e) {
                         System.out.println("simrskhanza.DlgCariPeriksaRadiologi.MnLihatHasilActionPerformed() ps5 : "+e);
@@ -1434,6 +1545,9 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
             param.put("hasil",HasilPeriksa.getText());
+            param.put("klinis",HasilKlinis.getText());
+            param.put("tsyth",HasilTsYth.getText());
+            param.put("kesan",HasilKesan.getText());
             param.put("logo",Sequel.cariGambar("select logo from setting"));
             param.put("finger",Sequel.cariIsi("select sha1(sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",kdpenjab));  
             param.put("finger2",Sequel.cariIsi("select sha1(sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",kdpetugas));  
@@ -1476,17 +1590,17 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         if(Kd2.getText().equals("")){
                JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data yang mau ditampilkan...!!!!"); 
         }else{
-            if(HasilPeriksa.getText().equals("")){
+            if(HasilPeriksa.getText().equals("")&&HasilKlinis.getText().equals("")&&HasilTsYth.getText().equals("")&&HasilKesan.getText().equals("")){
                 Sequel.queryu2("delete from hasil_radiologi where no_rawat=? and tgl_periksa=? and jam=?",3,new String[]{
                     tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),3).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString()
                 });
             }else{
-                if(Sequel.menyimpantf2("hasil_radiologi","?,?,?,?","Hasil Pemeriksaan", 4,new String[]{
+                if(Sequel.menyimpantf2("hasil_radiologi","?,?,?,?,?,?,?","Hasil Pemeriksaan", 7,new String[]{
                     tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),3).toString(),
-                    tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString(),HasilPeriksa.getText()
+                    tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString(),HasilPeriksa.getText(),HasilKlinis.getText(),HasilTsYth.getText(),HasilKesan.getText()
                 })==false){
-                    Sequel.queryu2("update hasil_radiologi set hasil=? where no_rawat=? and tgl_periksa=? and jam=?",4,new String[]{
-                        HasilPeriksa.getText(),tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),
+                    Sequel.queryu2("update hasil_radiologi set hasil=?, klinis=?, tsyth=?, kesan=? where no_rawat=? and tgl_periksa=? and jam=?",7,new String[]{
+                        HasilPeriksa.getText(),HasilKlinis.getText(),HasilTsYth.getText(),HasilKesan.getText(),tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),
                         tbDokter.getValueAt(tbDokter.getSelectedRow(),3).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString()
                     });                
                 }
@@ -1664,7 +1778,10 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.Button BtnSimpan;
     private widget.Button BtnSimpan4;
     private widget.panelisi FormInput;
+    private widget.TextArea HasilKesan;
+    private widget.TextArea HasilKlinis;
     private widget.TextArea HasilPeriksa;
+    private widget.TextArea HasilTsYth;
     private widget.TextBox Jk;
     private widget.TextBox Kd2;
     private widget.TextBox KdPtgUbah;
@@ -1681,7 +1798,6 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.TextBox NoRawat;
     private widget.TextBox Penjab;
     private widget.TextBox Petugas;
-    private widget.ScrollPane Scroll3;
     private widget.TextBox TCari;
     private widget.Tanggal Tgl1;
     private widget.Tanggal Tgl2;
@@ -1699,15 +1815,20 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.Label jLabel12;
     private widget.Label jLabel7;
     private widget.Label jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private widget.TextBox kdmem;
     private widget.TextBox kdptg;
+    private widget.Label label1;
     private widget.Label label10;
     private widget.Label label11;
     private widget.Label label13;
     private widget.Label label15;
     private widget.Label label16;
     private widget.Label label18;
+    private widget.Label label2;
+    private widget.Label label3;
+    private widget.Label label4;
     private widget.Label label9;
     private widget.TextBox nmmem;
     private widget.TextBox nmptg;
@@ -1716,6 +1837,10 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.panelisi panelisi3;
     private javax.swing.JMenuItem ppBerkasDigital;
     private widget.ScrollPane scrollPane1;
+    private widget.ScrollPane scrollPane2;
+    private widget.ScrollPane scrollPane3;
+    private widget.ScrollPane scrollPane4;
+    private widget.ScrollPane scrollPane5;
     private widget.Table tbDokter;
     // End of variables declaration//GEN-END:variables
 
@@ -1848,14 +1973,14 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         }
                     }    
                     ps5=koneksi.prepareStatement(
-                        "select hasil from hasil_radiologi where hasil_radiologi.no_rawat=? and hasil_radiologi.tgl_periksa=? and hasil_radiologi.jam=?");  
+                        "select hasil, klinis, tsyth, kesan from hasil_radiologi where hasil_radiologi.no_rawat=? and hasil_radiologi.tgl_periksa=? and hasil_radiologi.jam=?");  
                     try {
                         ps5.setString(1,rs.getString("no_rawat"));
                         ps5.setString(2,rs.getString("tgl_periksa"));
                         ps5.setString(3,rs.getString("jam"));
                         rs5=ps5.executeQuery();
                         while(rs5.next()){  
-                            tabMode.addRow(new Object[]{"Hasil Pemeriksaan :",rs5.getString("hasil"),"","","","",""});
+                            tabMode.addRow(new Object[]{"Hasil Pemeriksaan :",rs5.getString("hasil"),rs5.getString("klinis"),rs5.getString("tsyth"),rs5.getString("kesan"),"",""});
                         }
                     } catch (Exception e) {
                         System.out.println("simrskhanza.DlgCariPeriksaRadiologi.tampil() ps5 : "+e);

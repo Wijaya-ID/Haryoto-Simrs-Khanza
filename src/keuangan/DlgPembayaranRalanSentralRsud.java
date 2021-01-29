@@ -547,7 +547,7 @@ public final class DlgPembayaranRalanSentralRsud extends javax.swing.JDialog {
                                     tabMode.getValueAt(r,1).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,2).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,3).toString().replaceAll("'","`")+"','"+
-                                    tabMode.getValueAt(r,4).toString().replaceAll("'","`")+"','"+
+                                    tabMode.getValueAt(r,4).toString().replaceAll("'","`")+"','','','','"+
                                     tabMode.getValueAt(r,5).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,6).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,7).toString().replaceAll("'","`")+"','"+
@@ -566,7 +566,7 @@ public final class DlgPembayaranRalanSentralRsud extends javax.swing.JDialog {
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReport("rptRTagihanRalan.jasper","report","::[ Data Pembayaran Pasien Ralan Per Tanggal Registrasi ]::",param);
+            Valid.MyReport("rptRTagihanRalanSentralRsud.jasper","report","::[ Data Pembayaran Pasien Ralan Kasir Sentral Per Tanggal Registrasi ]::",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed

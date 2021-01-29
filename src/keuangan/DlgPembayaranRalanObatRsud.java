@@ -375,7 +375,6 @@ public final class DlgPembayaranRalanObatRsud extends javax.swing.JDialog {
         });
         panelGlass5.add(BtnAll);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(50, 50, 50));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Total :");
@@ -530,6 +529,7 @@ public final class DlgPembayaranRalanObatRsud extends javax.swing.JDialog {
         internalFrame1.add(PanelInput, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
+        internalFrame1.getAccessibleContext().setAccessibleName("::[ Data Pembayaran Pasien Ralan Obat Per Tanggal Registrasi ]::");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -548,8 +548,8 @@ public final class DlgPembayaranRalanObatRsud extends javax.swing.JDialog {
                                     tabMode.getValueAt(r,1).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,2).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,3).toString().replaceAll("'","`")+"','"+
-                                    tabMode.getValueAt(r,4).toString().replaceAll("'","`")+"','"+
-                                    tabMode.getValueAt(r,5).toString().replaceAll("'","`")+"','"+
+                                    tabMode.getValueAt(r,4).toString().replaceAll("'","`")+"','','"+
+                                    tabMode.getValueAt(r,5).toString().replaceAll("'","`")+"','','','','','"+
                                     tabMode.getValueAt(r,6).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,7).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,8).toString().replaceAll("'","`")+"','"+
@@ -565,7 +565,7 @@ public final class DlgPembayaranRalanObatRsud extends javax.swing.JDialog {
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReport("rptRTagihanRalan.jasper","report","::[ Data Pembayaran Pasien Ralan Per Tanggal Registrasi ]::",param);
+            Valid.MyReport("rptRTagihanRalanObatRsud.jasper","report","::[ Data Pembayaran Pasien Ralan Per Tanggal Registrasi ]::",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed

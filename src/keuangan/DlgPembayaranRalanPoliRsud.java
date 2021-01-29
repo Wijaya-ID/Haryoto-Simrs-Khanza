@@ -65,7 +65,7 @@ public final class DlgPembayaranRalanPoliRsud extends javax.swing.JDialog {
         setSize(885,674);
 
         Object[] rowRwJlDr={"Tanggal","No.Nota","Nama Pasien","Poli/Unit","Perujuk",
-                            "Registrasi","Paket Tindakan","Tambahan","Tambahan",
+                            "Registrasi","Paket Tindakan","Tambahan","Potongan",
                             "Total","Dokter","Keterangan"};
         tabMode=new DefaultTableModel(null,rowRwJlDr){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
@@ -548,8 +548,8 @@ public final class DlgPembayaranRalanPoliRsud extends javax.swing.JDialog {
                                     tabMode.getValueAt(r,2).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,3).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,4).toString().replaceAll("'","`")+"','"+
-                                    tabMode.getValueAt(r,5).toString().replaceAll("'","`")+"','"+
-                                    tabMode.getValueAt(r,6).toString().replaceAll("'","`")+"','"+
+                                    tabMode.getValueAt(r,5).toString().replaceAll("'","`")+"','','"+
+                                    tabMode.getValueAt(r,6).toString().replaceAll("'","`")+"','','','','"+
                                     tabMode.getValueAt(r,7).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,8).toString().replaceAll("'","`")+"','"+
                                     tabMode.getValueAt(r,9).toString().replaceAll("'","`")+"','"+
@@ -565,7 +565,7 @@ public final class DlgPembayaranRalanPoliRsud extends javax.swing.JDialog {
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReport("rptRTagihanRalan.jasper","report","::[ Data Pembayaran Pasien Ralan Per Tanggal Registrasi ]::",param);
+            Valid.MyReport("rptRTagihanRalanPoliRsud.jasper","report","::[ Data Pembayaran Pasien Ralan Poli Per Tanggal Registrasi ]::",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed

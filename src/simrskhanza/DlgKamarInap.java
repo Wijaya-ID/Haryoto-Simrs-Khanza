@@ -4969,7 +4969,8 @@ private void MnPemberianObatActionPerformed(java.awt.event.ActionEvent evt) {//G
 }//GEN-LAST:event_MnPemberianObatActionPerformed
 
 private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBillingActionPerformed
-      if(tabMode.getRowCount()==0){
+    
+    if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
       }else{
@@ -5005,7 +5006,7 @@ private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                         akses.setkdbangsal(bangsal);
                                     }
 
-                                    billing.TNoRw.setText(norawat.getText());                   
+                                    billing.TNoRw.setText(norawat.getText()); 
                                     billing.isCek();  
                                     billing.isRawat();          
                                     billing.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);

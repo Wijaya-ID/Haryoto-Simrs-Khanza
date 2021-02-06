@@ -1953,7 +1953,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         jLabel4.setPreferredSize(new java.awt.Dimension(65, 23));
         panelGlass1.add(jLabel4);
 
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-02-2021 08:36:32" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "04-02-2021 07:48:18" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -2439,6 +2439,14 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         B1.setEnabled(false);
         B1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         B1.setName("B1"); // NOI18N
+        B1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                B1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                B1KeyReleased(evt);
+            }
+        });
         panelBayar.add(B1);
         B1.setBounds(680, 430, 220, 23);
 
@@ -3663,23 +3671,23 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         ttl=(ttlLaborat+ttlRadiologi+ttlOperasi+ttlObat+ttlRanap_Dokter+ttlRanap_Paramedis+ttlRalan_Dokter+
                                 ttlRalan_Paramedis+ttlTambahan+ttlKamar+ttlRegistrasi+ttlHarian+ttlRetur_Obat+ttlResep_Pulang+ttlService);
                         if(ChkKondisional.isSelected()){
-                            Valid.panggilUrl("billing/LaporanBilling21.php?petugas="+akses.getkode().replaceAll(" ","_")+"&ttl="+ttl+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B1.getText()+"&tanggal="+DTPTgl.getSelectedItem().toString().replaceAll(" ","_"));
+                            Valid.panggilUrl("billing/LaporanBilling21.php?petugas="+akses.getkode().replaceAll(" ","_")+"&ttl="+ttl+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B2.getText()+"&tanggal="+DTPTgl.getSelectedItem().toString().replaceAll(" ","_"));
                         }else{
                             Valid.panggilUrl("billing/LaporanBilling2.php?petugas="+akses.getkode().replaceAll(" ","_")+"&ttl="+ttl+"&tanggal="+DTPTgl.getSelectedItem().toString().replaceAll(" ","_"));
                         }
                     }else if(i==2){
                         if(ChkKondisional.isSelected()){
-                            Valid.panggilUrl("billing/LaporanBilling31.php?petugas="+akses.getkode().replaceAll(" ","_")+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B1.getText()+"&tanggal="+DTPTgl.getSelectedItem().toString().replaceAll(" ","_"));
+                            Valid.panggilUrl("billing/LaporanBilling31.php?petugas="+akses.getkode().replaceAll(" ","_")+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B2.getText()+"&tanggal="+DTPTgl.getSelectedItem().toString().replaceAll(" ","_"));
                         }else{
                             Valid.panggilUrl("billing/LaporanBilling3.php?petugas="+akses.getkode().replaceAll(" ","_")+"&tanggal="+DTPTgl.getSelectedItem().toString().replaceAll(" ","_"));
                         }
                     }else if(i==3){
                         if(ChkKondisional.isSelected()){
                             if(piutang>0){
-                                Valid.panggilUrl("billing/LaporanBilling81.php?petugas="+akses.getkode().replaceAll(" ","_")+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B1.getText()+"&nonota="+Sequel.cariIsi("select count(kamar_inap.no_rawat) from kamar_inap inner join reg_periksa "+
+                                Valid.panggilUrl("billing/LaporanBilling81.php?petugas="+akses.getkode().replaceAll(" ","_")+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B2.getText()+"&nonota="+Sequel.cariIsi("select count(kamar_inap.no_rawat) from kamar_inap inner join reg_periksa "+
                                         "on kamar_inap.no_rawat=reg_periksa.no_rawat where reg_periksa.kd_pj='"+kd_pj+"' and kamar_inap.tgl_keluar like '%"+Valid.SetTgl(DTPTgl.getSelectedItem()+"").substring(0,7)+"%'")+"/RI/"+kd_pj+"/"+Valid.SetTgl(DTPTgl.getSelectedItem()+"").substring(5,7)+"/"+Valid.SetTgl(DTPTgl.getSelectedItem()+"").substring(0,4));
                             }else if(piutang<=0){
-                                Valid.panggilUrl("billing/LaporanBilling41.php?petugas="+akses.getkode().replaceAll(" ","_")+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B1.getText()+"&nonota="+Sequel.cariIsi("select count(kamar_inap.no_rawat) from kamar_inap inner join reg_periksa "+
+                                Valid.panggilUrl("billing/LaporanBilling41.php?petugas="+akses.getkode().replaceAll(" ","_")+"&K1="+K1.getText()+"&K2="+K2.getText()+"&B1="+B1.getText()+"&B2="+B2.getText()+"&nonota="+Sequel.cariIsi("select count(kamar_inap.no_rawat) from kamar_inap inner join reg_periksa "+
                                         "on kamar_inap.no_rawat=reg_periksa.no_rawat where reg_periksa.kd_pj='"+kd_pj+"' and kamar_inap.tgl_keluar like '%"+Valid.SetTgl(DTPTgl.getSelectedItem()+"").substring(0,7)+"%'")+"/RI/"+kd_pj+"/"+Valid.SetTgl(DTPTgl.getSelectedItem()+"").substring(5,7)+"/"+Valid.SetTgl(DTPTgl.getSelectedItem()+"").substring(0,4));
                             }
                         }else{
@@ -4208,6 +4216,17 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private void K1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_K1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_K1ActionPerformed
+
+    private void B1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           
+            
+        }
+    }//GEN-LAST:event_B1KeyPressed
+
+    private void B1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B1KeyReleased
 
 
 

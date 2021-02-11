@@ -32,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import simrskhanza.DlgCariBangsal;
 
-public class DlgSirkulasiBarang4 extends javax.swing.JDialog {
+public class DlgSirkulasiBarang6 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -54,7 +54,7 @@ public class DlgSirkulasiBarang4 extends javax.swing.JDialog {
     /** 
      * @param parent
      * @param modal */
-    public DlgSirkulasiBarang4(java.awt.Frame parent, boolean modal) {
+    public DlgSirkulasiBarang6(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
@@ -784,7 +784,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            DlgSirkulasiBarang4 dialog = new DlgSirkulasiBarang4(new javax.swing.JFrame(), true);
+            DlgSirkulasiBarang6 dialog = new DlgSirkulasiBarang6(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {

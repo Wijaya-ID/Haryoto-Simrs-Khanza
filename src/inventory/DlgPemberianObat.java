@@ -81,14 +81,14 @@ public class DlgPemberianObat extends javax.swing.JDialog {
 
         tabModePO=new DefaultTableModel(null,new Object[]{
                 "Tgl.Beri","Jam Beri","No.Rawat","No.R.M.","Nama Pasien","Kode Obat","Nama Obat/Alkes","Embalase",
-                "Tuslah","Jml","Biaya Obat","Total","Harga Beli","Gudang","No.Batch","No.Faktur"
+                "Tuslah","Jml","Biaya Obat","Total","Harga Beli","Gudang","No.Batch","No.Faktur","Aturan Pakai","Dokter Peresep"
             }){
             @Override 
             public boolean isCellEditable(int rowIndex, int colIndex){return false;}
             Class[] types = new Class[]{
-                java.lang.Object.class, java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
+                java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,java.lang.Object.class,
-                java.lang.Object.class,java.lang.Object.class
+                java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
             };
             @Override
             public Class getColumnClass(int columnIndex) {
@@ -101,7 +101,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         tbPemberianObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbPemberianObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 18; i++) {
             TableColumn column = tbPemberianObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(80);
@@ -136,6 +136,10 @@ public class DlgPemberianObat extends javax.swing.JDialog {
                 column.setPreferredWidth(70);
             }else if(i==15){
                 column.setPreferredWidth(100);
+            }else if(i==16){
+                column.setPreferredWidth(200);
+            }else if(i==17){
+                column.setPreferredWidth(200);
             }
         }
         tbPemberianObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -494,7 +498,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
 
         Tanggal.setEditable(false);
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-01-2020" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -652,7 +656,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel14);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-01-2020" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -665,7 +669,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-01-2020" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -789,7 +793,7 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         jLabel7.setBounds(-2, 42, 80, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-12-2019" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-01-2020" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -890,6 +894,11 @@ public class DlgPemberianObat extends javax.swing.JDialog {
         ChkJln.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChkJln.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ChkJln.setName("ChkJln"); // NOI18N
+        ChkJln.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChkJlnActionPerformed(evt);
+            }
+        });
         FormInput.add(ChkJln);
         ChkJln.setBounds(453, 42, 23, 23);
 
@@ -1308,6 +1317,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         // TODO add your handling code here:
     }//GEN-LAST:event_TanggalKeyPressed
 
+    private void ChkJlnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChkJlnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChkJlnActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1391,12 +1404,23 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "detail_pemberian_obat.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
                    "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
                    "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total,detail_pemberian_obat.h_beli,"+
-                   "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur "+
+                   "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur,aturan_pakai.aturan,dokter.nm_dokter "+
                    "from detail_pemberian_obat inner join reg_periksa inner join pasien inner join databarang "+
                    "on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
                    "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                    "and detail_pemberian_obat.kode_brng=databarang.kode_brng "+
-                   "where "+tgl+" and tgl_perawatan like ? or "+
+                   "left join aturan_pakai "+
+                   "on detail_pemberian_obat.tgl_perawatan=aturan_pakai.tgl_perawatan "+
+                   "and detail_pemberian_obat.jam=aturan_pakai.jam "+
+                   "and detail_pemberian_obat.no_rawat=aturan_pakai.no_rawat "+
+                   "and detail_pemberian_obat.kode_brng=aturan_pakai.kode_brng "+
+                   "left join resep_obat "+
+                   "on detail_pemberian_obat.tgl_perawatan=resep_obat.tgl_perawatan "+
+                   "and detail_pemberian_obat.jam=resep_obat.jam "+
+                   "and detail_pemberian_obat.no_rawat=resep_obat.no_rawat "+
+                   "inner join dokter "+
+                   "on resep_obat.kd_dokter=dokter.kd_dokter "+
+                   "where "+tgl+" and detail_pemberian_obat.tgl_perawatan like ? or "+
                    tgl+"and detail_pemberian_obat.no_rawat like ? or "+
                    tgl+"and reg_periksa.no_rkm_medis like ? or "+
                    tgl+"and pasien.nm_pasien like ? or "+
@@ -1404,7 +1428,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    tgl+"and databarang.nama_brng like ? or "+
                    tgl+"and detail_pemberian_obat.no_faktur like ? or "+
                    tgl+"and detail_pemberian_obat.no_batch like ? "+
-                   "order by detail_pemberian_obat.tgl_perawatan";
+                   "order by detail_pemberian_obat.tgl_perawatan and detail_pemberian_obat.jam";
         
         Valid.tabelKosong(tabModePO);
         try{
@@ -1428,7 +1452,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         rs.getString(7),rs.getDouble(8),rs.getDouble(9),
                         rs.getDouble(10),rs.getDouble(11),rs.getDouble(12),
                         rs.getDouble(13),rs.getString(14),rs.getString(15),
-                        rs.getString(16)
+                        rs.getString(16),rs.getString(17),rs.getString(18)
                     });
                 }
             } catch (Exception e) {
@@ -1458,12 +1482,23 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "detail_pemberian_obat.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
                    "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
                    "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total,detail_pemberian_obat.h_beli,"+
-                   "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur "+
+                   "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur,aturan_pakai.aturan,dokter.nm_dokter "+
                    "from detail_pemberian_obat inner join reg_periksa inner join pasien inner join databarang "+
                    "on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
                    "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                    "and detail_pemberian_obat.kode_brng=databarang.kode_brng "+
-                   "where "+tgl+" and tgl_perawatan like ? or "+
+                   "left join aturan_pakai "+
+                   "on detail_pemberian_obat.tgl_perawatan=aturan_pakai.tgl_perawatan "+
+                   "and detail_pemberian_obat.jam=aturan_pakai.jam "+
+                   "and detail_pemberian_obat.no_rawat=aturan_pakai.no_rawat "+
+                   "and detail_pemberian_obat.kode_brng=aturan_pakai.kode_brng "+
+                   "left join resep_obat "+
+                   "on detail_pemberian_obat.tgl_perawatan=resep_obat.tgl_perawatan "+
+                   "and detail_pemberian_obat.jam=resep_obat.jam "+
+                   "and detail_pemberian_obat.no_rawat=resep_obat.no_rawat "+
+                   "inner join dokter "+
+                   "on resep_obat.kd_dokter=dokter.kd_dokter "+
+                   "where "+tgl+" and detail_pemberian_obat.tgl_perawatan like ? or "+
                    tgl+"and detail_pemberian_obat.no_rawat like ? or "+
                    tgl+"and reg_periksa.no_rkm_medis like ? or "+
                    tgl+"and pasien.nm_pasien like ? or "+
@@ -1471,7 +1506,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    tgl+"and detail_pemberian_obat.no_faktur like ? or "+
                    tgl+"and detail_pemberian_obat.no_batch like ? or "+
                    tgl+"and databarang.nama_brng like ? "+
-                   "order by detail_pemberian_obat.tgl_perawatan";
+                   "order by detail_pemberian_obat.tgl_perawatan and detail_pemberian_obat.jam";
         
         Valid.tabelKosong(tabModePO);
         try{
@@ -1495,7 +1530,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         rs.getString(7),rs.getDouble(8),rs.getDouble(9),
                         rs.getDouble(10),rs.getDouble(11),rs.getDouble(12),
                         rs.getDouble(13),rs.getString(14),rs.getString(15),
-                        rs.getString(16)
+                        rs.getString(16),rs.getString(17),rs.getString(18)
                     });
                 }
             } catch (Exception e) {

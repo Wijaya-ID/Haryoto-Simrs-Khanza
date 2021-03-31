@@ -341,7 +341,6 @@ public final class DlgPindahGudang extends javax.swing.JDialog {
         BtnCari = new widget.Button();
         BtnAll = new widget.Button();
         panelisi1 = new widget.panelisi();
-        BtnHapus = new widget.Button();
         label10 = new widget.Label();
         LCount = new widget.Label();
         label13 = new widget.Label();
@@ -598,7 +597,7 @@ public final class DlgPindahGudang extends javax.swing.JDialog {
         panelisi3.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-10-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-08-2020" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -612,7 +611,7 @@ public final class DlgPindahGudang extends javax.swing.JDialog {
         panelisi3.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-10-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-08-2020" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -672,24 +671,6 @@ public final class DlgPindahGudang extends javax.swing.JDialog {
 
         panelisi1.setName("panelisi1"); // NOI18N
         panelisi1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
-
-        BtnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/stop_f2.png"))); // NOI18N
-        BtnHapus.setMnemonic('H');
-        BtnHapus.setText("Hapus");
-        BtnHapus.setToolTipText("Alt+H");
-        BtnHapus.setName("BtnHapus"); // NOI18N
-        BtnHapus.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnHapusActionPerformed(evt);
-            }
-        });
-        BtnHapus.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                BtnHapusKeyPressed(evt);
-            }
-        });
-        panelisi1.add(BtnHapus);
 
         label10.setText("Record :");
         label10.setName("label10"); // NOI18N
@@ -830,30 +811,6 @@ public final class DlgPindahGudang extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(!akses.getkode().equals("Admin Utama")){
-            if(!DEPOAKTIFOBAT.equals("")){
-                if(!DEPOAKTIFOBAT.equals(kddari.getText())){
-                    JOptionPane.showMessageDialog(null,"Anda tidak punya hak akses untuk menghapus mutasi dari depo ini...!");
-                }else{
-                    hapus();
-                }
-            }else{
-                hapus();
-            }
-        }else{
-            hapus();
-        }
-}//GEN-LAST:event_BtnHapusActionPerformed
-
-    private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnHapusKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-            BtnHapusActionPerformed(null);
-        }else{
-            Valid.pindah(evt, BtnKeluar, BtnAll);
-        }
-}//GEN-LAST:event_BtnHapusKeyPressed
-
     private void BtnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKeluarActionPerformed
         dispose();
 }//GEN-LAST:event_BtnKeluarActionPerformed
@@ -987,7 +944,7 @@ private void BtnCetakKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
 }//GEN-LAST:event_BtnCetakKeyPressed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        BtnHapus.setEnabled(akses.getmutasi_barang());       
+//        BtnHapus.setEnabled(akses.getmutasi_barang());       
     }//GEN-LAST:event_formWindowActivated
 
     private void btnKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeActionPerformed
@@ -1113,7 +1070,6 @@ private void BtnCetakKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.Button BtnCari;
     private widget.Button BtnCetak;
     private widget.Button BtnGolongan;
-    private widget.Button BtnHapus;
     private widget.Button BtnJenis;
     private widget.Button BtnKategori;
     private widget.Button BtnKeluar;

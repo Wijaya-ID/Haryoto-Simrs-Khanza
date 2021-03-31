@@ -43,7 +43,7 @@ public class DlgInputStok extends javax.swing.JDialog {
     private PreparedStatement pstampil,psstok;
     private ResultSet rstampil,rsstok;
     private DlgCariBangsal bangsal=new DlgCariBangsal(null,false);
-    private double ttl=0,y=0,ttl2=0,y2=0,stokbarang=0,kurang=0,harga=0;
+    private double ttl=0,y=0,ttl2=0,y2=0,stokbarang=0,stokdar=0,kurang=0,harga=0;
     private int jml=0,i=0,index=0;
     private String[] real,kodebarang,namabarang,kategori,satuan,nobatch,nofaktur;
     private double[] hargabeli,stok,selisih,lebih,nomihilang,nomilebih;
@@ -868,7 +868,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     }
                         
                     tbDokter.setValueAt(stokbarang,i,6);
-                    tbDokter.setValueAt(stokbarang,i,0);
+                    tbDokter.setValueAt(stokdar,i,0);
                 } catch (Exception e) {
                     tbDokter.setValueAt(0,i,6);
                     tbDokter.setValueAt(0,i,0);

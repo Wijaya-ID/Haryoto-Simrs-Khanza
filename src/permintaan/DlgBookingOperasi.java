@@ -220,6 +220,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         BtnAll = new widget.Button();
         panelCari = new widget.panelisi();
         R1 = new widget.RadioButton();
+        R5 = new widget.RadioButton();
         R2 = new widget.RadioButton();
         DTPCari1 = new widget.Tanggal();
         jLabel22 = new widget.Label();
@@ -561,13 +562,20 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         panelCari.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 2, 9));
 
         buttonGroup1.add(R1);
-        R1.setSelected(true);
         R1.setText("Menunggu");
         R1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         R1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         R1.setName("R1"); // NOI18N
         R1.setPreferredSize(new java.awt.Dimension(95, 23));
         panelCari.add(R1);
+
+        buttonGroup1.add(R5);
+        R5.setText("Pending");
+        R5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        R5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        R5.setName("R5"); // NOI18N
+        R5.setPreferredSize(new java.awt.Dimension(90, 23));
+        panelCari.add(R5);
 
         buttonGroup1.add(R2);
         R2.setText("Tanggal :");
@@ -577,7 +585,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(80, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2020" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2021" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -600,7 +608,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2020" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2021" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -628,7 +636,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(80, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2020" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2021" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -651,7 +659,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2020" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2021" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -734,7 +742,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         TPasien.setBounds(200, 10, 358, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2020" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-03-2021" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -746,7 +754,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         FormInput.add(DTPTgl);
         DTPTgl.setBounds(73, 40, 90, 23);
 
-        Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Menunggu", "Proses Operasi", "Selesai" }));
+        Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Menunggu", "Proses Operasi", "Selesai", "Pending" }));
         Status.setName("Status"); // NOI18N
         Status.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1434,6 +1442,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.RadioButton R2;
     private widget.RadioButton R3;
     private widget.RadioButton R4;
+    private widget.RadioButton R5;
     private widget.ScrollPane Scroll;
     private widget.ComboBox Status;
     private widget.TextBox TCari;
@@ -1466,6 +1475,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             status=" booking_operasi.status='Menunggu' ";
         }else if(R4.isSelected()==true){
             status=" booking_operasi.status='Proses Operasi' ";
+        }else if(R5.isSelected()==true){
+            status=" booking_operasi.status='Pending' ";
         }else if(R2.isSelected()==true){
             status=" booking_operasi.tanggal between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' ";
         }else if(R3.isSelected()==true){

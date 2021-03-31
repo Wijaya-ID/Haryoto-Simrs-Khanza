@@ -1405,8 +1405,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
                    "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total,detail_pemberian_obat.h_beli,"+
                    "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur,aturan_pakai.aturan,dokter.nm_dokter "+
-                   "from detail_pemberian_obat inner join reg_periksa inner join pasien inner join databarang "+
+                   "from detail_pemberian_obat inner join reg_periksa "+
                    "on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
+                   "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join databarang on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
                    "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                    "and detail_pemberian_obat.kode_brng=databarang.kode_brng "+
                    "left join aturan_pakai "+
@@ -1418,7 +1420,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "on detail_pemberian_obat.tgl_perawatan=resep_obat.tgl_perawatan "+
                    "and detail_pemberian_obat.jam=resep_obat.jam "+
                    "and detail_pemberian_obat.no_rawat=resep_obat.no_rawat "+
-                   "inner join dokter "+
+                   "left join dokter "+
                    "on resep_obat.kd_dokter=dokter.kd_dokter "+
                    "where "+tgl+" and detail_pemberian_obat.tgl_perawatan like ? or "+
                    tgl+"and detail_pemberian_obat.no_rawat like ? or "+
@@ -1483,8 +1485,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "detail_pemberian_obat.kode_brng,databarang.nama_brng,detail_pemberian_obat.embalase,detail_pemberian_obat.tuslah,"+
                    "detail_pemberian_obat.jml,detail_pemberian_obat.biaya_obat,detail_pemberian_obat.total,detail_pemberian_obat.h_beli,"+
                    "detail_pemberian_obat.kd_bangsal,detail_pemberian_obat.no_batch,detail_pemberian_obat.no_faktur,aturan_pakai.aturan,dokter.nm_dokter "+
-                   "from detail_pemberian_obat inner join reg_periksa inner join pasien inner join databarang "+
+                   "from detail_pemberian_obat inner join reg_periksa "+
                    "on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
+                   "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join databarang on detail_pemberian_obat.no_rawat=reg_periksa.no_rawat "+
                    "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                    "and detail_pemberian_obat.kode_brng=databarang.kode_brng "+
                    "left join aturan_pakai "+
@@ -1496,7 +1500,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                    "on detail_pemberian_obat.tgl_perawatan=resep_obat.tgl_perawatan "+
                    "and detail_pemberian_obat.jam=resep_obat.jam "+
                    "and detail_pemberian_obat.no_rawat=resep_obat.no_rawat "+
-                   "inner join dokter "+
+                   "left join dokter "+
                    "on resep_obat.kd_dokter=dokter.kd_dokter "+
                    "where "+tgl+" and detail_pemberian_obat.tgl_perawatan like ? or "+
                    tgl+"and detail_pemberian_obat.no_rawat like ? or "+

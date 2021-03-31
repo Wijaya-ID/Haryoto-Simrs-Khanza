@@ -302,6 +302,25 @@ public class koneksiDB {
         return var;
     }
     
+     public static String URLAPIBANKJATIM(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("URLAPIBANKJATIM");
+        }catch(Exception e){
+            var=""; 
+        }
+        return var;
+    }
+    public static String PREFIX(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("PREFIX");
+        }catch(Exception e){
+            var=""; 
+        }
+        return var;
+    }
+    
     public static String SECRETKEYAPIAPLICARE(){
         try{
             prop.loadFromXML(new FileInputStream("setting/database.xml"));

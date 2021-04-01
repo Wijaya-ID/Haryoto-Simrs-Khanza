@@ -868,7 +868,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     }
                         
                     tbDokter.setValueAt(stokbarang,i,6);
-                    tbDokter.setValueAt(stokdar,i,0);
+                    tbDokter.setValueAt(stokbarang,i,0);
                 } catch (Exception e) {
                     tbDokter.setValueAt(0,i,6);
                     tbDokter.setValueAt(0,i,0);
